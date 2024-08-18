@@ -1,0 +1,20 @@
+{
+	"cards": {
+	  "Punch": {
+	    "cost": 1,
+	    "effect": "Deal 3 damage",
+	    "description": "Rien qu'une patate dans la tronche."
+	  },
+	  "Healing Potion": {
+	    "cost": 3,
+	    "effect": "Restore 5 health",
+	    "description": "Une potion simple, au goût amer."
+	  },
+	  "Guard": {
+	    "cost": 1,
+	    "effect": "Gain 3 armor",
+	    "description": "Ce sera peut-etre un peu moins douloureux avec vos mains devant le visage."
+	  }
+	}
+}
+      
