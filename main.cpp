@@ -6,13 +6,17 @@
 int main(void)
 {
 	Collection& collection = Collection::initialize("cards.json");
-	Deck deck;
+	// Deck deck;
 
-	deck.printDeck();
-	deck.shuffle();
-	deck.printDeck();
+	// deck.printDeck();
+	// deck.shuffle();
+	// deck.printDeck();
 
-	// Player player("Me");
-	// player.draw();
-	// player.printHand();	
+	Player player("Me");
+	player.draw();
+	player.draw();
+	player.draw();
+	player.draw();
+	player.draw();
+	player.printHand();	
 }

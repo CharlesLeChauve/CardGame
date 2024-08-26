@@ -14,10 +14,11 @@ public:
 	~Deck();
 
 	void	shuffle();
-	void	addCard(Card* card);
-	void	removeCard(Card* card);
+	void	addCard(Card card);
+	void	removeCard();
 	void    printDeck();
-	Card*	draw();
+	int		getSize() const;
+	Card	draw();
 };
 
 Deck::Deck() {
@@ -46,9 +47,19 @@ void    Deck::printDeck()
 		std::cout << card.getName() << std::endl;
 }
 
-Card*	Deck::draw()
+Card	Deck::draw()
 {
-	Card	*card = new Card(cards[0]);
+	Card	card(cards[0]);
 	this->cards.erase(cards.begin());
 	return card;
+}
+
+int		Deck::getSize() const
+{
+	return cards.size();
+}
+
+void	Deck::addCard(Card card)
+{
+	this->cards.push_back(card);
 }
