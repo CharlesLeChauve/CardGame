@@ -2,29 +2,44 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <functional>
 #include "json.hpp"
+
+class ACharacter;
+class IEffect;
 
 using json = nlohmann::json;
 
 class Card
 {
-private:
+protected:
 	std::string	name;
 	int			cost;
-	std::string effect;
-	std::string description;
+	std::string	description;
+
+	// Méthode virtuelle pure pour définir l'effet de la carte dans les classes dérivées
+	std::vector<std::unique_ptr<IEffect>> effects;
+
 public:
-	Card(std::string name, int cost, std::string effect, std::string description);
-	~Card();
-	const std::string&	getName() const;
+	Card(std::string name, int cost, std::string description);
+    void addEffect(std::unique_ptr<IEffect> effect);
+    void applyEffects(ACharacter& target, ACharacter& player) const;
+    const std::string& getName() const;
 };
 
-Card::Card(std::string name, int cost, std::string effect, std::string description)
-        : name(name), cost(cost), effect(effect), description(description) {}
+Card::Card(std::string name, int cost, std::string description)
+    : name(std::move(name)), cost(cost), description(std::move(description)) {}
 
-Card::~Card() {}
+void Card::addEffect(std::unique_ptr<IEffect> effect) {
+    effects.push_back(std::move(effect));
+}
 
-const std::string&	Card::getName() const
-{
-	return (this->name);
+void Card::applyEffects(ACharacter& target, ACharacter& player) const {
+    for (const auto& effect : effects) {
+        effect->apply(target);
+    }
+}
+
+const std::string& Card::getName() const {
+    return name;
 }

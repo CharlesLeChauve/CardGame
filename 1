@@ -1,0 +1,754 @@
+In file included from Deck.hpp:8,
+                 from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Collection.hpp:17:27: error: ‘Card’ was not declared in this scope
+   17 |     std::map<std::string, Card> card_map;  // Map de pointeurs uniques
+      |                           ^~~~
+Collection.hpp:17:31: error: template argument 2 is invalid
+   17 |     std::map<std::string, Card> card_map;  // Map de pointeurs uniques
+      |                               ^
+In file included from Deck.hpp:8,
+                 from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Collection.hpp:17:27: error: ‘Card’ was not declared in this scope
+   17 |     std::map<std::string, Card> card_map;  // Map de pointeurs uniques
+      |                           ^~~~
+Collection.hpp:17:31: error: template argument 2 is invalid
+   17 |     std::map<std::string, Card> card_map;  // Map de pointeurs uniques
+      |                               ^
+Collection.hpp:17:31: error: template argument 4 is invalid
+Collection.hpp:17:31: error: template argument 4 is invalid
+Collection.hpp:33:21: error: ‘Card’ was not declared in this scope
+   33 |     std::unique_ptr<Card> getCard(const std::string& card_name) const;
+      |                     ^~~~
+Collection.hpp:33:25: error: template argument 1 is invalid
+   33 |     std::unique_ptr<Card> getCard(const std::string& card_name) const;
+      |                         ^
+Collection.hpp:33:25: error: template argument 2 is invalid
+Collection.hpp:33:21: error: ‘Card’ was not declared in this scope
+   33 |     std::unique_ptr<Card> getCard(const std::string& card_name) const;
+      |                     ^~~~
+Collection.hpp:33:25: error: template argument 1 is invalid
+   33 |     std::unique_ptr<Card> getCard(const std::string& card_name) const;
+      |                         ^
+Collection.hpp:33:25: error: template argument 2 is invalid
+Collection.hpp:36:21: error: ‘Card’ was not declared in this scope
+   36 |     std::unique_ptr<Card> getRandomCard() const;
+      |                     ^~~~
+Collection.hpp:36:25: error: template argument 1 is invalid
+   36 |     std::unique_ptr<Card> getRandomCard() const;
+      |                         ^
+Collection.hpp:36:25: error: template argument 2 is invalid
+Collection.hpp:36:21: error: ‘Card’ was not declared in this scope
+   36 |     std::unique_ptr<Card> getRandomCard() const;
+      |                     ^~~~
+Collection.hpp:36:25: error: template argument 1 is invalid
+   36 |     std::unique_ptr<Card> getRandomCard() const;
+      |                         ^
+Collection.hpp:36:25: error: template argument 2 is invalid
+Collection.hpp: In constructor ‘Collection::Collection(const string&)’:
+Collection.hpp:62:17: error: no match for ‘operator[]’ (operand types are ‘int’ and ‘std::string’ {aka ‘std::__cxx11::basic_string<char>’})
+   62 |         card_map[name] = Card(name, cost, description);
+      |                 ^
+Collection.hpp: In constructor ‘Collection::Collection(const string&)’:
+Collection.hpp:62:17: error: no match for ‘operator[]’ (operand types are ‘int’ and ‘std::string’ {aka ‘std::__cxx11::basic_string<char>’})
+   62 |         card_map[name] = Card(name, cost, description);
+      |                 ^
+Collection.hpp:62:26: error: ‘Card’ was not declared in this scope
+   62 |         card_map[name] = Card(name, cost, description);
+      |                          ^~~~
+Collection.hpp:62:26: error: ‘Card’ was not declared in this scope
+   62 |         card_map[name] = Card(name, cost, description);
+      |                          ^~~~
+Collection.hpp: At global scope:
+Collection.hpp:66:17: error: ‘Card’ was not declared in this scope
+   66 | std::unique_ptr<Card> Collection::getCard(const std::string& card_name) const {
+      |                 ^~~~
+Collection.hpp: At global scope:
+Collection.hpp:66:17: error: ‘Card’ was not declared in this scope
+   66 | std::unique_ptr<Card> Collection::getCard(const std::string& card_name) const {
+      |                 ^~~~
+Collection.hpp:66:21: error: template argument 1 is invalid
+   66 | std::unique_ptr<Card> Collection::getCard(const std::string& card_name) const {
+      |                     ^
+Collection.hpp:66:21: error: template argument 2 is invalid
+Collection.hpp:66:21: error: template argument 1 is invalid
+   66 | std::unique_ptr<Card> Collection::getCard(const std::string& card_name) const {
+      |                     ^
+Collection.hpp:66:21: error: template argument 2 is invalid
+Collection.hpp: In member function ‘int Collection::getCard(const string&) const’:
+Collection.hpp:67:24: error: request for member ‘find’ in ‘((const Collection*)this)->Collection::card_map’, which is of non-class type ‘const int’
+   67 |     auto it = card_map.find(card_name);
+      |                        ^~~~
+Collection.hpp: In member function ‘int Collection::getCard(const string&) const’:
+Collection.hpp:67:24: error: request for member ‘find’ in ‘((const Collection*)this)->Collection::card_map’, which is of non-class type ‘const int’
+   67 |     auto it = card_map.find(card_name);
+      |                        ^~~~
+Collection.hpp:68:24: error: request for member ‘end’ in ‘((const Collection*)this)->Collection::card_map’, which is of non-class type ‘const int’
+   68 |     if (it != card_map.end()) {
+      |                        ^~~
+Collection.hpp:68:24: error: request for member ‘end’ in ‘((const Collection*)this)->Collection::card_map’, which is of non-class type ‘const int’
+   68 |     if (it != card_map.end()) {
+      |                        ^~~
+Collection.hpp:70:33: error: ‘Card’ was not declared in this scope
+   70 |         return std::make_unique<Card>(it->second);  // Clone de la carte
+      |                                 ^~~~
+Collection.hpp:70:33: error: ‘Card’ was not declared in this scope
+   70 |         return std::make_unique<Card>(it->second);  // Clone de la carte
+      |                                 ^~~~
+Collection.hpp: At global scope:
+Collection.hpp:76:17: error: ‘Card’ was not declared in this scope
+   76 | std::unique_ptr<Card> Collection::getRandomCard() const {
+      |                 ^~~~
+Collection.hpp: At global scope:
+Collection.hpp:76:17: error: ‘Card’ was not declared in this scope
+   76 | std::unique_ptr<Card> Collection::getRandomCard() const {
+      |                 ^~~~
+Collection.hpp:76:21: error: template argument 1 is invalid
+   76 | std::unique_ptr<Card> Collection::getRandomCard() const {
+      |                     ^
+Collection.hpp:76:21: error: template argument 1 is invalid
+   76 | std::unique_ptr<Card> Collection::getRandomCard() const {
+      |                     ^
+Collection.hpp:76:21: error: template argument 2 is invalid
+Collection.hpp:76:21: error: template argument 2 is invalid
+Collection.hpp: In member function ‘int Collection::getRandomCard() const’:
+Collection.hpp:77:18: error: request for member ‘empty’ in ‘((const Collection*)this)->Collection::card_map’, which is of non-class type ‘const int’
+   77 |     if (card_map.empty()) {
+      |                  ^~~~~
+Collection.hpp: In member function ‘int Collection::getRandomCard() const’:
+Collection.hpp:77:18: error: request for member ‘empty’ in ‘((const Collection*)this)->Collection::card_map’, which is of non-class type ‘const int’
+   77 |     if (card_map.empty()) {
+      |                  ^~~~~
+Collection.hpp:81:23: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   81 |     std::vector<const Card*> cards;
+      |                       ^~~~
+Collection.hpp:81:23: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   81 |     std::vector<const Card*> cards;
+      |                       ^~~~
+Collection.hpp:81:28: error: template argument 1 is invalid
+   81 |     std::vector<const Card*> cards;
+      |                            ^
+Collection.hpp:81:28: error: template argument 1 is invalid
+   81 |     std::vector<const Card*> cards;
+      |                            ^
+Collection.hpp:81:28: error: template argument 2 is invalid
+Collection.hpp:81:28: error: template argument 2 is invalid
+Collection.hpp:82:29: error: ‘begin’ was not declared in this scope; did you mean ‘std::begin’?
+   82 |     for (const auto& pair : card_map) {
+      |                             ^~~~~~~~
+      |                             std::begin
+Collection.hpp:82:29: error: ‘begin’ was not declared in this scope; did you mean ‘std::begin’?
+   82 |     for (const auto& pair : card_map) {
+      |                             ^~~~~~~~
+      |                             std::begin
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1226:5: note: ‘std::begin’ declared here
+ 1226 |     begin(const valarray<_Tp>& __va) noexcept
+      |     ^~~~~
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1226:5: note: ‘std::begin’ declared here
+ 1226 |     begin(const valarray<_Tp>& __va) noexcept
+      |     ^~~~~
+In file included from Deck.hpp:8,
+                 from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Collection.hpp:82:29: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   82 |     for (const auto& pair : card_map) {
+      |                             ^~~~~~~~
+      |                             std::end
+In file included from Deck.hpp:8,
+                 from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Collection.hpp:82:29: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   82 |     for (const auto& pair : card_map) {
+      |                             ^~~~~~~~
+      |                             std::end
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1251:5: note: ‘std::end’ declared here
+ 1251 |     end(const valarray<_Tp>& __va) noexcept
+      |     ^~~
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1251:5: note: ‘std::end’ declared here
+ 1251 |     end(const valarray<_Tp>& __va) noexcept
+      |     ^~~
+In file included from Deck.hpp:8,
+                 from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Collection.hpp:83:15: error: request for member ‘push_back’ in ‘cards’, which is of non-class type ‘int’
+   83 |         cards.push_back(&pair.second);
+      |               ^~~~~~~~~
+In file included from Deck.hpp:8,
+                 from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Collection.hpp:83:15: error: request for member ‘push_back’ in ‘cards’, which is of non-class type ‘int’
+   83 |         cards.push_back(&pair.second);
+      |               ^~~~~~~~~
+Collection.hpp:88:50: error: request for member ‘size’ in ‘cards’, which is of non-class type ‘int’
+   88 |     std::uniform_int_distribution<> dis(0, cards.size() - 1);
+      |                                                  ^~~~
+Collection.hpp:88:50: error: request for member ‘size’ in ‘cards’, which is of non-class type ‘int’
+   88 |     std::uniform_int_distribution<> dis(0, cards.size() - 1);
+      |                                                  ^~~~
+Collection.hpp:91:29: error: ‘Card’ was not declared in this scope
+   91 |     return std::make_unique<Card>(*cards[dis(gen)]);  // Clone de la carte
+      |                             ^~~~
+Collection.hpp:91:29: error: ‘Card’ was not declared in this scope
+   91 |     return std::make_unique<Card>(*cards[dis(gen)]);  // Clone de la carte
+      |                             ^~~~
+Collection.hpp:91:41: error: invalid types ‘int[std::uniform_int_distribution<>::result_type {aka int}]’ for array subscript
+   91 |     return std::make_unique<Card>(*cards[dis(gen)]);  // Clone de la carte
+      |                                         ^
+Collection.hpp:91:41: error: invalid types ‘int[std::uniform_int_distribution<>::result_type {aka int}]’ for array subscript
+   91 |     return std::make_unique<Card>(*cards[dis(gen)]);  // Clone de la carte
+      |                                         ^
+In file included from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Deck.hpp: At global scope:
+Deck.hpp:14:33: error: ‘Card’ was not declared in this scope
+   14 |     std::vector<std::unique_ptr<Card>> cards;
+      |                                 ^~~~
+Deck.hpp:14:33: error: template argument 1 is invalid
+Deck.hpp:14:33: error: template argument 2 is invalid
+Deck.hpp:14:37: error: template argument 1 is invalid
+   14 |     std::vector<std::unique_ptr<Card>> cards;
+      |                                     ^~
+In file included from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Deck.hpp: At global scope:
+Deck.hpp:14:33: error: ‘Card’ was not declared in this scope
+   14 |     std::vector<std::unique_ptr<Card>> cards;
+      |                                 ^~~~
+Deck.hpp:14:33: error: template argument 1 is invalid
+Deck.hpp:14:33: error: template argument 2 is invalid
+Deck.hpp:14:37: error: template argument 1 is invalid
+   14 |     std::vector<std::unique_ptr<Card>> cards;
+      |                                     ^~
+Deck.hpp:14:37: error: template argument 2 is invalid
+Deck.hpp:14:37: error: template argument 2 is invalid
+Deck.hpp:21:34: error: ‘Card’ was not declared in this scope
+   21 |     void addCard(std::unique_ptr<Card> card);
+      |                                  ^~~~
+Deck.hpp:21:34: error: ‘Card’ was not declared in this scope
+   21 |     void addCard(std::unique_ptr<Card> card);
+      |                                  ^~~~
+Deck.hpp:21:38: error: template argument 1 is invalid
+   21 |     void addCard(std::unique_ptr<Card> card);
+      |                                      ^
+Deck.hpp:21:38: error: template argument 1 is invalid
+   21 |     void addCard(std::unique_ptr<Card> card);
+      |                                      ^
+Deck.hpp:21:38: error: template argument 2 is invalid
+Deck.hpp:21:38: error: template argument 2 is invalid
+Deck.hpp:25:21: error: ‘Card’ was not declared in this scope
+   25 |     std::unique_ptr<Card> draw();  // Retourne un unique_ptr pour la carte piochée
+      |                     ^~~~
+Deck.hpp:25:21: error: ‘Card’ was not declared in this scope
+   25 |     std::unique_ptr<Card> draw();  // Retourne un unique_ptr pour la carte piochée
+      |                     ^~~~
+Deck.hpp:25:25: error: template argument 1 is invalid
+   25 |     std::unique_ptr<Card> draw();  // Retourne un unique_ptr pour la carte piochée
+      |                         ^
+Deck.hpp:25:25: error: template argument 1 is invalid
+   25 |     std::unique_ptr<Card> draw();  // Retourne un unique_ptr pour la carte piochée
+      |                         ^
+Deck.hpp:25:25: error: template argument 2 is invalid
+Deck.hpp:25:25: error: template argument 2 is invalid
+Deck.hpp: In constructor ‘Deck::Deck()’:
+Deck.hpp:31:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   31 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp: In constructor ‘Deck::Deck()’:
+Deck.hpp:31:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   31 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp:32:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   32 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp:32:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   32 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp:33:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   33 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp:33:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   33 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp:34:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   34 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp:34:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   34 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp:35:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   35 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp:35:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   35 |     cards.push_back(collection.getRandomCard());
+      |           ^~~~~~~~~
+Deck.hpp: In member function ‘void Deck::shuffle()’:
+Deck.hpp:47:24: error: request for member ‘begin’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   47 |     std::shuffle(cards.begin(), cards.end(), g);
+      |                        ^~~~~
+Deck.hpp: In member function ‘void Deck::shuffle()’:
+Deck.hpp:47:24: error: request for member ‘begin’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   47 |     std::shuffle(cards.begin(), cards.end(), g);
+      |                        ^~~~~
+Deck.hpp:47:39: error: request for member ‘end’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   47 |     std::shuffle(cards.begin(), cards.end(), g);
+      |                                       ^~~
+Deck.hpp:47:39: error: request for member ‘end’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   47 |     std::shuffle(cards.begin(), cards.end(), g);
+      |                                       ^~~
+Deck.hpp: In member function ‘void Deck::printDeck() const’:
+Deck.hpp:52:29: error: ‘begin’ was not declared in this scope; did you mean ‘std::begin’?
+   52 |     for (const auto& card : cards)
+      |                             ^~~~~
+      |                             std::begin
+Deck.hpp: In member function ‘void Deck::printDeck() const’:
+Deck.hpp:52:29: error: ‘begin’ was not declared in this scope; did you mean ‘std::begin’?
+   52 |     for (const auto& card : cards)
+      |                             ^~~~~
+      |                             std::begin
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1226:5: note: ‘std::begin’ declared here
+ 1226 |     begin(const valarray<_Tp>& __va) noexcept
+      |     ^~~~~
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1226:5: note: ‘std::begin’ declared here
+ 1226 |     begin(const valarray<_Tp>& __va) noexcept
+      |     ^~~~~
+In file included from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Deck.hpp:52:29: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   52 |     for (const auto& card : cards)
+      |                             ^~~~~
+      |                             std::end
+In file included from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Deck.hpp:52:29: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   52 |     for (const auto& card : cards)
+      |                             ^~~~~
+      |                             std::end
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1251:5: note: ‘std::end’ declared here
+ 1251 |     end(const valarray<_Tp>& __va) noexcept
+      |     ^~~
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1251:5: note: ‘std::end’ declared here
+ 1251 |     end(const valarray<_Tp>& __va) noexcept
+      |     ^~~
+In file included from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Deck.hpp: At global scope:
+Deck.hpp:59:17: error: ‘Card’ was not declared in this scope
+   59 | std::unique_ptr<Card> Deck::draw()
+      |                 ^~~~
+In file included from ACharacter.hpp:6,
+                 from Card.hpp:8,
+                 from main.cpp:1:
+Deck.hpp: At global scope:
+Deck.hpp:59:17: error: ‘Card’ was not declared in this scope
+   59 | std::unique_ptr<Card> Deck::draw()
+      |                 ^~~~
+Deck.hpp:59:21: error: template argument 1 is invalid
+   59 | std::unique_ptr<Card> Deck::draw()
+      |                     ^
+Deck.hpp:59:21: error: template argument 1 is invalid
+   59 | std::unique_ptr<Card> Deck::draw()
+      |                     ^
+Deck.hpp:59:21: error: template argument 2 is invalid
+Deck.hpp:59:21: error: template argument 2 is invalid
+Deck.hpp: In member function ‘int Deck::draw()’:
+Deck.hpp:61:15: error: request for member ‘empty’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   61 |     if (cards.empty())
+      |               ^~~~~
+Deck.hpp: In member function ‘int Deck::draw()’:
+Deck.hpp:61:15: error: request for member ‘empty’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   61 |     if (cards.empty())
+      |               ^~~~~
+Deck.hpp:64:16: error: cannot convert ‘std::nullptr_t’ to ‘int’ in return
+   64 |         return nullptr;  // Pas de carte à piocher
+      |                ^~~~~~~
+Deck.hpp:64:16: error: cannot convert ‘std::nullptr_t’ to ‘int’ in return
+   64 |         return nullptr;  // Pas de carte à piocher
+      |                ^~~~~~~
+Deck.hpp:68:21: error: ‘Card’ was not declared in this scope
+   68 |     std::unique_ptr<Card> card = std::move(cards.front());
+      |                     ^~~~
+Deck.hpp:68:21: error: ‘Card’ was not declared in this scope
+   68 |     std::unique_ptr<Card> card = std::move(cards.front());
+      |                     ^~~~
+Deck.hpp:68:25: error: template argument 1 is invalid
+   68 |     std::unique_ptr<Card> card = std::move(cards.front());
+      |                         ^
+Deck.hpp:68:25: error: template argument 1 is invalid
+   68 |     std::unique_ptr<Card> card = std::move(cards.front());
+      |                         ^
+Deck.hpp:68:25: error: template argument 2 is invalid
+Deck.hpp:68:25: error: template argument 2 is invalid
+Deck.hpp:68:50: error: request for member ‘front’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   68 |     std::unique_ptr<Card> card = std::move(cards.front());
+      |                                                  ^~~~~
+Deck.hpp:68:50: error: request for member ‘front’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   68 |     std::unique_ptr<Card> card = std::move(cards.front());
+      |                                                  ^~~~~
+Deck.hpp:69:11: error: request for member ‘erase’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   69 |     cards.erase(cards.begin());  // Supprimer la carte du deck
+      |           ^~~~~
+Deck.hpp:69:11: error: request for member ‘erase’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   69 |     cards.erase(cards.begin());  // Supprimer la carte du deck
+      |           ^~~~~
+Deck.hpp:69:23: error: request for member ‘begin’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   69 |     cards.erase(cards.begin());  // Supprimer la carte du deck
+      |                       ^~~~~
+Deck.hpp:69:23: error: request for member ‘begin’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   69 |     cards.erase(cards.begin());  // Supprimer la carte du deck
+      |                       ^~~~~
+Deck.hpp: In member function ‘int Deck::getSize() const’:
+Deck.hpp:75:18: error: request for member ‘size’ in ‘((const Deck*)this)->Deck::cards’, which is of non-class type ‘const int’
+   75 |     return cards.size();
+      |                  ^~~~
+Deck.hpp: In member function ‘int Deck::getSize() const’:
+Deck.hpp:75:18: error: request for member ‘size’ in ‘((const Deck*)this)->Deck::cards’, which is of non-class type ‘const int’
+   75 |     return cards.size();
+      |                  ^~~~
+Deck.hpp: At global scope:
+Deck.hpp:78:36: error: ‘Card’ was not declared in this scope
+   78 | void Deck::addCard(std::unique_ptr<Card> card)
+      |                                    ^~~~
+Deck.hpp:78:40: error: template argument 1 is invalid
+   78 | void Deck::addCard(std::unique_ptr<Card> card)
+      |                                        ^
+Deck.hpp:78:40: error: template argument 2 is invalid
+Deck.hpp: At global scope:
+Deck.hpp:78:36: error: ‘Card’ was not declared in this scope
+   78 | void Deck::addCard(std::unique_ptr<Card> card)
+      |                                    ^~~~
+Deck.hpp:78:40: error: template argument 1 is invalid
+   78 | void Deck::addCard(std::unique_ptr<Card> card)
+      |                                        ^
+Deck.hpp:78:40: error: template argument 2 is invalid
+Deck.hpp: In member function ‘void Deck::addCard(int)’:
+Deck.hpp:80:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   80 |     cards.push_back(std::move(card));  // Transférer la propriété au deck
+      |           ^~~~~~~~~
+Deck.hpp: In member function ‘void Deck::addCard(int)’:
+Deck.hpp:80:11: error: request for member ‘push_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   80 |     cards.push_back(std::move(card));  // Transférer la propriété au deck
+      |           ^~~~~~~~~
+Deck.hpp: In member function ‘void Deck::removeCard()’:
+Deck.hpp:85:16: error: request for member ‘empty’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   85 |     if (!cards.empty())
+      |                ^~~~~
+Deck.hpp:87:15: error: request for member ‘pop_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   87 |         cards.pop_back();  // Supprime la dernière carte
+      |               ^~~~~~~~
+Deck.hpp: In member function ‘void Deck::removeCard()’:
+Deck.hpp:85:16: error: request for member ‘empty’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   85 |     if (!cards.empty())
+      |                ^~~~~
+Deck.hpp:87:15: error: request for member ‘pop_back’ in ‘((Deck*)this)->Deck::cards’, which is of non-class type ‘int’
+   87 |         cards.pop_back();  // Supprime la dernière carte
+      |               ^~~~~~~~
+In file included from Card.hpp:8,
+                 from main.cpp:1:
+ACharacter.hpp: At global scope:
+ACharacter.hpp:16:33: error: ‘Card’ was not declared in this scope
+   16 |     std::vector<std::unique_ptr<Card>> hand;
+      |                                 ^~~~
+In file included from Card.hpp:8,
+                 from main.cpp:1:
+ACharacter.hpp: At global scope:
+ACharacter.hpp:16:33: error: ‘Card’ was not declared in this scope
+   16 |     std::vector<std::unique_ptr<Card>> hand;
+      |                                 ^~~~
+ACharacter.hpp:16:33: error: template argument 1 is invalid
+ACharacter.hpp:16:33: error: template argument 2 is invalid
+ACharacter.hpp:16:33: error: template argument 1 is invalid
+ACharacter.hpp:16:33: error: template argument 2 is invalid
+ACharacter.hpp:16:37: error: template argument 1 is invalid
+   16 |     std::vector<std::unique_ptr<Card>> hand;
+      |                                     ^~
+ACharacter.hpp:16:37: error: template argument 1 is invalid
+   16 |     std::vector<std::unique_ptr<Card>> hand;
+      |                                     ^~
+ACharacter.hpp:16:37: error: template argument 2 is invalid
+ACharacter.hpp:16:37: error: template argument 2 is invalid
+ACharacter.hpp:17:33: error: ‘Card’ was not declared in this scope
+   17 |     std::vector<std::unique_ptr<Card>> discardPile;
+      |                                 ^~~~
+ACharacter.hpp:17:33: error: ‘Card’ was not declared in this scope
+   17 |     std::vector<std::unique_ptr<Card>> discardPile;
+      |                                 ^~~~
+ACharacter.hpp:17:33: error: template argument 1 is invalid
+ACharacter.hpp:17:33: error: template argument 2 is invalid
+ACharacter.hpp:17:37: error: template argument 1 is invalid
+   17 |     std::vector<std::unique_ptr<Card>> discardPile;
+      |                                     ^~
+ACharacter.hpp:17:33: error: template argument 1 is invalid
+ACharacter.hpp:17:33: error: template argument 2 is invalid
+ACharacter.hpp:17:37: error: template argument 1 is invalid
+   17 |     std::vector<std::unique_ptr<Card>> discardPile;
+      |                                     ^~
+ACharacter.hpp:17:37: error: template argument 2 is invalid
+ACharacter.hpp:17:37: error: template argument 2 is invalid
+ACharacter.hpp:41:22: error: ‘Card’ has not been declared
+   41 |     virtual void use(Card& card, ACharacter& target) = 0;
+      |                      ^~~~
+ACharacter.hpp:41:22: error: ‘Card’ has not been declared
+   41 |     virtual void use(Card& card, ACharacter& target) = 0;
+      |                      ^~~~
+ACharacter.hpp: In member function ‘virtual void ACharacter::draw()’:
+ACharacter.hpp:89:25: error: request for member ‘empty’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+   89 |         if (discardPile.empty()) {
+      |                         ^~~~~
+ACharacter.hpp: In member function ‘virtual void ACharacter::draw()’:
+ACharacter.hpp:89:25: error: request for member ‘empty’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+   89 |         if (discardPile.empty()) {
+      |                         ^~~~~
+ACharacter.hpp:95:14: error: request for member ‘size’ in ‘((ACharacter*)this)->ACharacter::hand’, which is of non-class type ‘int’
+   95 |     if (hand.size() >= static_cast<size_t>(hand_size))
+      |              ^~~~
+ACharacter.hpp:95:14: error: request for member ‘size’ in ‘((ACharacter*)this)->ACharacter::hand’, which is of non-class type ‘int’
+   95 |     if (hand.size() >= static_cast<size_t>(hand_size))
+      |              ^~~~
+ACharacter.hpp:96:21: error: request for member ‘push_back’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+   96 |         discardPile.push_back(deck.draw());
+      |                     ^~~~~~~~~
+ACharacter.hpp:96:21: error: request for member ‘push_back’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+   96 |         discardPile.push_back(deck.draw());
+      |                     ^~~~~~~~~
+ACharacter.hpp:98:14: error: request for member ‘push_back’ in ‘((ACharacter*)this)->ACharacter::hand’, which is of non-class type ‘int’
+   98 |         hand.push_back(deck.draw());
+      |              ^~~~~~~~~
+ACharacter.hpp:98:14: error: request for member ‘push_back’ in ‘((ACharacter*)this)->ACharacter::hand’, which is of non-class type ‘int’
+   98 |         hand.push_back(deck.draw());
+      |              ^~~~~~~~~
+ACharacter.hpp: In member function ‘virtual void ACharacter::printHand() const’:
+ACharacter.hpp:102:29: error: ‘begin’ was not declared in this scope; did you mean ‘std::begin’?
+  102 |     for (const auto& card : hand)
+      |                             ^~~~
+      |                             std::begin
+ACharacter.hpp: In member function ‘virtual void ACharacter::printHand() const’:
+ACharacter.hpp:102:29: error: ‘begin’ was not declared in this scope; did you mean ‘std::begin’?
+  102 |     for (const auto& card : hand)
+      |                             ^~~~
+      |                             std::begin
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1226:5: note: ‘std::begin’ declared here
+ 1226 |     begin(const valarray<_Tp>& __va) noexcept
+      |     ^~~~~
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1226:5: note: ‘std::begin’ declared here
+ 1226 |     begin(const valarray<_Tp>& __va) noexcept
+      |     ^~~~~
+In file included from Card.hpp:8,
+                 from main.cpp:1:
+ACharacter.hpp:102:29: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+  102 |     for (const auto& card : hand)
+      |                             ^~~~
+      |                             std::end
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1251:5: note: ‘std::end’ declared here
+ 1251 |     end(const valarray<_Tp>& __va) noexcept
+      |     ^~~
+In file included from Card.hpp:8,
+                 from main.cpp:1:
+ACharacter.hpp:102:29: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+  102 |     for (const auto& card : hand)
+      |                             ^~~~
+      |                             std::end
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1251:5: note: ‘std::end’ declared here
+ 1251 |     end(const valarray<_Tp>& __va) noexcept
+      |     ^~~
+In file included from Card.hpp:8,
+                 from main.cpp:1:
+ACharacter.hpp: In member function ‘virtual void ACharacter::shuffleDiscard()’:
+ACharacter.hpp:108:25: error: request for member ‘empty’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+  108 |     while (!discardPile.empty()) {
+      |                         ^~~~~
+In file included from Card.hpp:8,
+                 from main.cpp:1:
+ACharacter.hpp: In member function ‘virtual void ACharacter::shuffleDiscard()’:
+ACharacter.hpp:108:25: error: request for member ‘empty’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+  108 |     while (!discardPile.empty()) {
+      |                         ^~~~~
+ACharacter.hpp:109:44: error: request for member ‘back’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+  109 |         deck.addCard(std::move(discardPile.back()));
+      |                                            ^~~~
+ACharacter.hpp:109:44: error: request for member ‘back’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+  109 |         deck.addCard(std::move(discardPile.back()));
+      |                                            ^~~~
+ACharacter.hpp:110:21: error: request for member ‘pop_back’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+  110 |         discardPile.pop_back();
+      |                     ^~~~~~~~
+ACharacter.hpp:110:21: error: request for member ‘pop_back’ in ‘((ACharacter*)this)->ACharacter::discardPile’, which is of non-class type ‘int’
+  110 |         discardPile.pop_back();
+      |                     ^~~~~~~~
+In file included from main.cpp:1:
+Card.hpp: At global scope:
+Card.hpp:20:30: error: ‘IEffect’ was not declared in this scope
+   20 |  std::vector<std::unique_ptr<IEffect>> effects;
+      |                              ^~~~~~~
+In file included from main.cpp:1:
+Card.hpp: At global scope:
+Card.hpp:20:30: error: ‘IEffect’ was not declared in this scope
+   20 |  std::vector<std::unique_ptr<IEffect>> effects;
+      |                              ^~~~~~~
+Card.hpp:20:30: error: template argument 1 is invalid
+Card.hpp:20:30: error: template argument 1 is invalid
+Card.hpp:20:30: error: template argument 2 is invalid
+Card.hpp:20:30: error: template argument 2 is invalid
+Card.hpp:20:37: error: template argument 1 is invalid
+   20 |  std::vector<std::unique_ptr<IEffect>> effects;
+      |                                     ^~
+Card.hpp:20:37: error: template argument 1 is invalid
+   20 |  std::vector<std::unique_ptr<IEffect>> effects;
+      |                                     ^~
+Card.hpp:20:37: error: template argument 2 is invalid
+Card.hpp:20:37: error: template argument 2 is invalid
+Card.hpp:24:36: error: ‘IEffect’ was not declared in this scope
+   24 |     void addEffect(std::unique_ptr<IEffect> effect);
+      |                                    ^~~~~~~
+Card.hpp:24:36: error: ‘IEffect’ was not declared in this scope
+   24 |     void addEffect(std::unique_ptr<IEffect> effect);
+      |                                    ^~~~~~~
+Card.hpp:24:43: error: template argument 1 is invalid
+   24 |     void addEffect(std::unique_ptr<IEffect> effect);
+      |                                           ^
+Card.hpp:24:43: error: template argument 1 is invalid
+   24 |     void addEffect(std::unique_ptr<IEffect> effect);
+      |                                           ^
+Card.hpp:24:43: error: template argument 2 is invalid
+Card.hpp:24:43: error: template argument 2 is invalid
+Card.hpp:32:38: error: ‘IEffect’ was not declared in this scope
+   32 | void Card::addEffect(std::unique_ptr<IEffect> effect) {
+      |                                      ^~~~~~~
+Card.hpp:32:38: error: ‘IEffect’ was not declared in this scope
+   32 | void Card::addEffect(std::unique_ptr<IEffect> effect) {
+      |                                      ^~~~~~~
+Card.hpp:32:45: error: template argument 1 is invalid
+   32 | void Card::addEffect(std::unique_ptr<IEffect> effect) {
+      |                                             ^
+Card.hpp:32:45: error: template argument 1 is invalid
+   32 | void Card::addEffect(std::unique_ptr<IEffect> effect) {
+      |                                             ^
+Card.hpp:32:45: error: template argument 2 is invalid
+Card.hpp:32:45: error: template argument 2 is invalid
+Card.hpp: In member function ‘void Card::addEffect(int)’:
+Card.hpp:33:13: error: request for member ‘push_back’ in ‘((Card*)this)->Card::effects’, which is of non-class type ‘int’
+   33 |     effects.push_back(std::move(effect));
+      |             ^~~~~~~~~
+Card.hpp: In member function ‘void Card::addEffect(int)’:
+Card.hpp:33:13: error: request for member ‘push_back’ in ‘((Card*)this)->Card::effects’, which is of non-class type ‘int’
+   33 |     effects.push_back(std::move(effect));
+      |             ^~~~~~~~~
+Card.hpp: In member function ‘void Card::applyEffects(ACharacter&, ACharacter&) const’:
+Card.hpp:37:31: error: ‘begin’ was not declared in this scope; did you mean ‘std::begin’?
+   37 |     for (const auto& effect : effects) {
+      |                               ^~~~~~~
+      |                               std::begin
+Card.hpp: In member function ‘void Card::applyEffects(ACharacter&, ACharacter&) const’:
+Card.hpp:37:31: error: ‘begin’ was not declared in this scope; did you mean ‘std::begin’?
+   37 |     for (const auto& effect : effects) {
+      |                               ^~~~~~~
+      |                               std::begin
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1226:5: note: ‘std::begin’ declared here
+ 1226 |     begin(const valarray<_Tp>& __va) noexcept
+      |     ^~~~~
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1226:5: note: ‘std::begin’ declared here
+ 1226 |     begin(const valarray<_Tp>& __va) noexcept
+      |     ^~~~~
+In file included from main.cpp:1:
+Card.hpp:37:31: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   37 |     for (const auto& effect : effects) {
+      |                               ^~~~~~~
+      |                               std::end
+In file included from main.cpp:1:
+Card.hpp:37:31: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   37 |     for (const auto& effect : effects) {
+      |                               ^~~~~~~
+      |                               std::end
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1251:5: note: ‘std::end’ declared here
+ 1251 |     end(const valarray<_Tp>& __va) noexcept
+      |     ^~~
+In file included from json.hpp:170,
+                 from Card.hpp:6,
+                 from main.cpp:1:
+/usr/include/c++/10/valarray:1251:5: note: ‘std::end’ declared here
+ 1251 |     end(const valarray<_Tp>& __va) noexcept
+      |     ^~~
+main.cpp: In function ‘int main()’:
+main.cpp:16:9: error: cannot declare variable ‘player’ to be of abstract type ‘Player’
+   16 |  Player player("Me");
+      |         ^~~~~~
+main.cpp: In function ‘int main()’:
+main.cpp:16:9: error: cannot declare variable ‘player’ to be of abstract type ‘Player’
+   16 |  Player player("Me");
+      |         ^~~~~~
+In file included from main.cpp:4:
+Player.hpp:7:7: note:   because the following virtual functions are pure within ‘Player’:
+    7 | class Player : public ACharacter {
+      |       ^~~~~~
+In file included from Card.hpp:8,
+                 from main.cpp:1:
+ACharacter.hpp:41:18: note:     ‘virtual void ACharacter::use(int&, ACharacter&)’
+   41 |     virtual void use(Card& card, ACharacter& target) = 0;
+      |                  ^~~
+In file included from main.cpp:4:
+Player.hpp:7:7: note:   because the following virtual functions are pure within ‘Player’:
+    7 | class Player : public ACharacter {
+      |       ^~~~~~
+In file included from Card.hpp:8,
+                 from main.cpp:1:
+ACharacter.hpp:41:18: note:     ‘virtual void ACharacter::use(int&, ACharacter&)’
+   41 |     virtual void use(Card& card, ACharacter& target) = 0;
+      |                  ^~~
+make: *** [<builtin>: main.o] Error 1
+make: *** [<builtin>: main.o] Error 1

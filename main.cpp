@@ -1,4 +1,5 @@
 #include "Card.hpp"
+#include "ACharacter.hpp"
 #include "Deck.hpp"
 #include "Player.hpp"
 #include "Collection.hpp"

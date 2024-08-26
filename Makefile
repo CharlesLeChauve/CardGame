@@ -1,7 +1,7 @@
 NAME	=	Cyberogue
 GCC		=	c++
-FLAGS 	=	-g -Wall -Werror -Werror
-SRC 	=	$(wildcard *.cpp)
+FLAGS 	=	-g -Wall -Werror -Werror -std=c++17
+SRC 	=	Card.cpp Collection.cpp Deck.cpp Enemy.cpp Player.cpp main.cpp
 OBJ 	=	$(patsubst %.cpp,%.o,$(SRC))
 RM 		=	rm -f
 
