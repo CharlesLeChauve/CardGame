@@ -14,7 +14,7 @@ using json = nlohmann::json;
 class Collection {
 private:
     static Collection& instance;
-    std::map<std::string, Card> card_map;  // Map de pointeurs uniques
+    std::map<std::string, Card> card_map;
     Collection(const std::string& file_name);
 
 public:
@@ -59,7 +59,7 @@ Collection::Collection(const std::string& file_name) {
         std::string description = value["description"];
 
         // Création d'une nouvelle carte dans la map avec un unique_ptr
-        card_map[name] = Card(name, cost, description);
+        card_map.emplace(name, Card(name, cost, description));
     }
 }
 

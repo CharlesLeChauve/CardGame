@@ -1,62 +1,12 @@
+Done
+
+Deleting cub3D executable...
+Done
+
+g++    -c -o Card.o Card.cpp
+g++    -c -o Collection.o Collection.cpp
+g++    -c -o Deck.o Deck.cpp
+g++    -c -o Enemy.o Enemy.cpp
+g++    -c -o Player.o Player.cpp
 g++    -c -o main.o main.cpp
-In file included from main.cpp:1:
-Card.hpp: In member function ‘void Card::applyEffects(ACharacter&, ACharacter&) const’:
-Card.hpp:39:15: error: invalid use of incomplete type ‘class IEffect’
-   39 |         effect->apply(target);
-      |               ^~
-Card.hpp:9:7: note: forward declaration of ‘class IEffect’
-    9 | class IEffect;
-      |       ^~~~~~~
-In file included from /usr/include/c++/10/vector:66,
-                 from Card.hpp:3,
-                 from main.cpp:1:
-/usr/include/c++/10/bits/stl_uninitialized.h: In instantiation of ‘_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const std::unique_ptr<IEffect>*, std::vector<std::unique_ptr<IEffect> > >; _ForwardIterator = std::unique_ptr<IEffect>*]’:
-/usr/include/c++/10/bits/stl_uninitialized.h:325:37:   required from ‘_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const std::unique_ptr<IEffect>*, std::vector<std::unique_ptr<IEffect> > >; _ForwardIterator = std::unique_ptr<IEffect>*; _Tp = std::unique_ptr<IEffect>]’
-/usr/include/c++/10/bits/stl_vector.h:558:31:   required from ‘std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = std::unique_ptr<IEffect>; _Alloc = std::allocator<std::unique_ptr<IEffect> >]’
-Card.hpp:13:7:   required from ‘typename std::_MakeUniq<_Tp>::__single_object std::make_unique(_Args&& ...) [with _Tp = Card; _Args = {const Card&}; typename std::_MakeUniq<_Tp>::__single_object = std::unique_ptr<Card>]’
-Collection.hpp:70:49:   required from here
-/usr/include/c++/10/bits/stl_uninitialized.h:137:72: error: static assertion failed: result type must be constructible from value type of input range
-  137 |       static_assert(is_constructible<_ValueType2, decltype(*__first)>::value,
-      |                                                                        ^~~~~
-In file included from /usr/include/c++/10/memory:83,
-                 from json.hpp:29,
-                 from Card.hpp:6,
-                 from main.cpp:1:
-/usr/include/c++/10/bits/unique_ptr.h: In instantiation of ‘void std::default_delete<_Tp>::operator()(_Tp*) const [with _Tp = IEffect]’:
-/usr/include/c++/10/bits/unique_ptr.h:361:17:   required from ‘std::unique_ptr<_Tp, _Dp>::~unique_ptr() [with _Tp = IEffect; _Dp = std::default_delete<IEffect>]’
-/usr/include/c++/10/bits/stl_construct.h:140:22:   required from ‘constexpr void std::_Destroy(_Tp*) [with _Tp = std::unique_ptr<IEffect>]’
-/usr/include/c++/10/bits/stl_construct.h:152:19:   required from ‘static void std::_Destroy_aux<<anonymous> >::__destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = std::unique_ptr<IEffect>*; bool <anonymous> = false]’
-/usr/include/c++/10/bits/stl_construct.h:185:11:   required from ‘void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = std::unique_ptr<IEffect>*]’
-/usr/include/c++/10/bits/alloc_traits.h:842:15:   required from ‘void std::_Destroy(_ForwardIterator, _ForwardIterator, std::allocator<_T2>&) [with _ForwardIterator = std::unique_ptr<IEffect>*; _Tp = std::unique_ptr<IEffect>]’
-/usr/include/c++/10/bits/stl_vector.h:680:15:   required from ‘std::vector<_Tp, _Alloc>::~vector() [with _Tp = std::unique_ptr<IEffect>; _Alloc = std::allocator<std::unique_ptr<IEffect> >]’
-Card.hpp:31:76:   required from here
-/usr/include/c++/10/bits/unique_ptr.h:83:16: error: invalid application of ‘sizeof’ to incomplete type ‘IEffect’
-   83 |  static_assert(sizeof(_Tp)>0,
-      |                ^~~~~~~~~~~
-In file included from /usr/include/c++/10/functional:54,
-                 from Card.hpp:5,
-                 from main.cpp:1:
-/usr/include/c++/10/tuple: In instantiation of ‘std::pair<_T1, _T2>::pair(std::tuple<_Args1 ...>&, std::tuple<_Args2 ...>&, std::_Index_tuple<_Indexes1 ...>, std::_Index_tuple<_Indexes2 ...>) [with _Args1 = {const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; long unsigned int ..._Indexes1 = {0}; _Args2 = {}; long unsigned int ..._Indexes2 = {}; _T1 = const std::__cxx11::basic_string<char>; _T2 = Card]’:
-/usr/include/c++/10/tuple:1695:63:   required from ‘std::pair<_T1, _T2>::pair(std::piecewise_construct_t, std::tuple<_Args1 ...>, std::tuple<_Args2 ...>) [with _Args1 = {const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Args2 = {}; _T1 = const std::__cxx11::basic_string<char>; _T2 = Card]’
-/usr/include/c++/10/ext/new_allocator.h:156:4:   required from ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::pair<const std::__cxx11::basic_string<char>, Card>; _Args = {const std::piecewise_construct_t&, std::tuple<const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&>, std::tuple<>}; _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, Card> >]’
-/usr/include/c++/10/bits/alloc_traits.h:512:17:   required from ‘static void std::allocator_traits<std::allocator<_CharT> >::construct(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*, _Args&& ...) [with _Up = std::pair<const std::__cxx11::basic_string<char>, Card>; _Args = {const std::piecewise_construct_t&, std::tuple<const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&>, std::tuple<>}; _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, Card> >; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, Card> > >]’
-/usr/include/c++/10/bits/stl_tree.h:618:32:   required from ‘void std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_construct_node(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Link_type, _Args&& ...) [with _Args = {const std::piecewise_construct_t&, std::tuple<const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&>, std::tuple<>}; _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, Card>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, Card> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, Card> >; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Link_type = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, Card> >*]’
-/usr/include/c++/10/bits/stl_tree.h:635:21:   required from ‘std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_create_node(_Args&& ...) [with _Args = {const std::piecewise_construct_t&, std::tuple<const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&>, std::tuple<>}; _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, Card>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, Card> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, Card> >; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Link_type = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, Card> >*]’
-/usr/include/c++/10/bits/stl_tree.h:2466:33:   required from ‘std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_emplace_hint_unique(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::const_iterator, _Args&& ...) [with _Args = {const std::piecewise_construct_t&, std::tuple<const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&>, std::tuple<>}; _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, Card>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, Card> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, Card> >; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator = std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, Card>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, Card> >, std::less<std::__cxx11::basic_string<char> >, std::allocator<std::pair<const std::__cxx11::basic_string<char>, Card> > >::iterator; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::const_iterator = std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, Card>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, Card> >, std::less<std::__cxx11::basic_string<char> >, std::allocator<std::pair<const std::__cxx11::basic_string<char>, Card> > >::const_iterator]’
-/usr/include/c++/10/bits/stl_map.h:501:37:   required from ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = Card; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, Card> >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = Card; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
-Collection.hpp:62:22:   required from here
-/usr/include/c++/10/tuple:1706:70: error: no matching function for call to ‘Card::Card()’
- 1706 |         second(std::forward<_Args2>(std::get<_Indexes2>(__tuple2))...)
-      |                                                                      ^
-In file included from main.cpp:1:
-Card.hpp:30:1: note: candidate: ‘Card::Card(std::string, int, std::string)’
-   30 | Card::Card(std::string name, int cost, std::string description)
-      | ^~~~
-Card.hpp:30:1: note:   candidate expects 3 arguments, 0 provided
-Card.hpp:13:7: note: candidate: ‘Card::Card(const Card&)’
-   13 | class Card
-      |       ^~~~
-Card.hpp:13:7: note:   candidate expects 1 argument, 0 provided
-Card.hpp:13:7: note: candidate: ‘Card::Card(Card&&)’
-Card.hpp:13:7: note:   candidate expects 1 argument, 0 provided
-make: *** [<builtin>: main.o] Error 1
+c++  Card.o Collection.o Deck.o Enemy.o Player.o main.o -o Cyberogue

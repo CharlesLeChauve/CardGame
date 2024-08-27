@@ -4,9 +4,10 @@
 #include <fstream>
 #include <functional>
 #include "json.hpp"
+#include "IEffect.hpp"
 
 class ACharacter;
-class IEffect;
+// class IEffect;
 
 using json = nlohmann::json;
 
@@ -17,12 +18,11 @@ protected:
 	int			cost;
 	std::string	description;
 
-	// Méthode virtuelle pure pour définir l'effet de la carte dans les classes dérivées
-	std::vector<std::unique_ptr<IEffect>> effects;
+	std::vector<IEffect*> effects;
 
 public:
 	Card(std::string name, int cost, std::string description);
-    void addEffect(std::unique_ptr<IEffect> effect);
+    void addEffect(IEffect* effect);
     void applyEffects(ACharacter& target, ACharacter& player) const;
     const std::string& getName() const;
 };
@@ -30,12 +30,12 @@ public:
 Card::Card(std::string name, int cost, std::string description)
     : name(std::move(name)), cost(cost), description(std::move(description)) {}
 
-void Card::addEffect(std::unique_ptr<IEffect> effect) {
-    effects.push_back(std::move(effect));
+void Card::addEffect(IEffect* effect) {
+    effects.push_back(effect);
 }
 
 void Card::applyEffects(ACharacter& target, ACharacter& player) const {
-    for (const auto& effect : effects) {
+    for (const auto* effect : effects) {
         effect->apply(target);
     }
 }
