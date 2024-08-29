@@ -1,23 +1,15 @@
 #pragma once
+
 #include <iostream>
-#include "GameMediator.hpp"
+#include "Card.hpp"
+#include "ACharacter.hpp"
 
-class Enemy {
-private:
-    int health;
-    GameMediator* mediator;
-
+class Enemy : public ACharacter {
 public:
-    Enemy(GameMediator* mediator) : health(50), mediator(mediator) {}
+    Enemy(const std::string& name);
+    ~Enemy();
 
-    void attack(Player& player) {
-        mediator->enemyAttack(player, *this);
-    }
-
-    void takeDamage(int damage) {
-        health -= damage;
-        std::cout << "Enemy takes " << damage << " damage! Health: " << health << std::endl;
-    }
-
-    int getHealth() const { return health; }
+    // Implémentation des méthodes virtuelles pures de ACharacter
+    void use(Card& card, ACharacter& target, int index) override;
+    void performSpecialAbility() override;
 };

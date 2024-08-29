@@ -1,29 +1,34 @@
-NAME	=	Cyberogue
-GCC		=	c++
-FLAGS 	=	-g -Wall -Werror -Werror -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0
-SRC 	=	Card.cpp Collection.cpp Deck.cpp Enemy.cpp Player.cpp main.cpp
-OBJ 	=	$(patsubst %.cpp,%.o,$(SRC))
-RM 		=	rm -f
+# Variables
+NAME    = Cyberogue
+CXX     = c++
+FLAGS   = -g -std=c++17 #-Wall -Werror
+SRC     = CEffects.cpp EffectFactory.cpp Card.cpp Deck.cpp ACharacter.cpp Enemy.cpp Player.cpp main.cpp Collection.cpp
+OBJ     = $(SRC:.cpp=.o)
+RM      = rm -f
 
-.SUFFIXES: .c .o
-
-$(NAME): $(OBJ)
-	$(GCC) $(CFLAGS) $(OBJ) -o $(NAME)
-
-%.o: %.c
-	$(GCC) $(FLAGS) -c $< -o $@ 
-
+# Cible par défaut
 all: $(NAME)
 
+# Création de l'exécutable
+$(NAME): $(OBJ)
+	$(CXX) $(FLAGS) $(OBJ) -o $(NAME)
+
+# Création des fichiers objets
+%.o: %.cpp
+	$(CXX) $(FLAGS) -c $< -o $@
+
+# Nettoyage des fichiers objets
 clean:
-	@rm -f $(OBJ)
-	@echo "Done\n"
+	@$(RM) $(OBJ)
+	@echo "Done"
 
+# Nettoyage complet (objets + exécutable)
 fclean: clean
-	@echo "Deleting cub3D executable..."
-	@rm -f $(NAME)
-	@echo "Done\n"
+	@$(RM) $(NAME)
+	@echo "Done"
 
+# Nettoyage complet + recompilation
 re: fclean all
 
-.PHONY: all do_configure clean fclean re
+# Cibles "Phony" pour éviter les conflits avec des fichiers du même nom
+.PHONY: all clean fclean re

@@ -1,46 +1,35 @@
 {
-	"cards": {
-	  "Punch": {
-	    "cost": 1,
-	    "effect": "Deal 3 damage",
-	    "description": "Rien qu'une patate dans la tronche."
-	  },
-	  "Healing Potion": {
-	    "cost": 3,
-	    "effect": "Restore 5 health",
-	/*Ici, mettre un sous tableau cle-valeurs qui aurait comme cle l'identifiant de l'effet,
-	 utilise pour aller chercher dans la EffectFactory et en valeur le montant de l'effet
-	 
-	 #include "EffectFactory.hpp"
-#include "json.hpp" // Assure-toi d'avoir une bibliothèque JSON comme nlohmann/json
-
-using json = nlohmann::json;
-
-void loadEffectsFromJson(const std::string& filename) {
-    std::ifstream file(filename);
-    json j;
-    file >> j;
-
-    for (const auto& effectJson : j["effects"]) {
-        std::string effectType = effectJson["type"];
-        std::string params = effectJson["params"];
-        IEffect* effect = EffectFactory::instance().createEffect(effectType, params);
-        if (effect) {
-            effect->apply();
-            delete effect; // Assure-toi de libérer la mémoire
-        } else {
-            std::cerr << "Unknown effect type: " << effectType << std::endl;
+    "cards": {
+        "Punch": {
+            "cost": 1,
+            "effects": [
+                {
+					"parameters": {
+                        "amount" : 5,
+                        "target" : "Opponent"
+                    },
+					"type": "damage"
+                }
+            ],
+            "description": "Deal 3 damage"
+        },
+        "Healing Potion": {
+            "cost": 3,
+            "effects": [
+                {
+					"parameters": {
+                        "amount" : 3,
+                        "target" : "Holder"
+                    },
+					"type": "heal"
+                }
+            ],
+            "description": "Heal 5 Hp"
+        },
+        "Guard": {
+            "cost": 1,
+            "effects": [],
+            "description": "Gain 3 Armor"
         }
     }
-}
-	 
-	 */
-	    "description": "Une potion simple, au goût amer."
-	  },
-	  "Guard": {
-	    "cost": 1,
-	    "effect": "Gain 3 armor",
-	    "description": "Ce sera peut-etre un peu moins douloureux avec vos mains devant le visage."
-	  }
-	}
 }

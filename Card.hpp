@@ -7,9 +7,18 @@
 #include "IEffect.hpp"
 
 class ACharacter;
-// class IEffect;
 
 using json = nlohmann::json;
+
+enum class TargetType {
+    Holder,  // Le joueur qui utilise la carte
+    Opponent // L'adversaire
+};
+
+struct TargetedEffect {
+    IEffect* effect;
+    TargetType target;
+};
 
 class Card
 {
@@ -18,28 +27,13 @@ protected:
 	int			cost;
 	std::string	description;
 
-	std::vector<IEffect*> effects;
+	std::vector<TargetedEffect> effects;
 
 public:
 	Card(std::string name, int cost, std::string description);
-    void addEffect(IEffect* effect);
-    void applyEffects(ACharacter& target, ACharacter& player) const;
+    void addEffect(IEffect* effect, std::string target_type);
+    void applyEffects(ACharacter& holder, ACharacter& opponent) const ;
     const std::string& getName() const;
+	const std::string& getDescription() const;
+    // const std::vector<IEffect*>& getEffects() const;
 };
-
-Card::Card(std::string name, int cost, std::string description)
-    : name(std::move(name)), cost(cost), description(std::move(description)) {}
-
-void Card::addEffect(IEffect* effect) {
-    effects.push_back(effect);
-}
-
-void Card::applyEffects(ACharacter& target, ACharacter& player) const {
-    for (const auto* effect : effects) {
-        effect->apply(target);
-    }
-}
-
-const std::string& Card::getName() const {
-    return name;
-}

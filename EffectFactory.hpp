@@ -1,50 +1,29 @@
 // EffectFactory.hpp
 #pragma once
+#include "json.hpp"
 
-#include <map>
-#include <string>
-#include <functional>
-#include "IEffect.hpp"
+class IEffect;
+
+using json = nlohmann::json;
 
 class EffectFactory {
 public:
-    using EffectCreator = std::function<IEffect*(const std::string&)>;
+    using EffectCreator = std::function<IEffect*(const json&)>;
 
-    static EffectFactory& instance() {
-        static EffectFactory factory;
-        return factory;
-    }
+    // Singleton pattern: static method to get the single instance of the factory
+    static EffectFactory& instance();
 
-    void registerEffect(const std::string& type, EffectCreator creator) {
-        creators[type] = creator;
-    }
+    // Method to register a new effect
+    void registerEffect(const std::string& type, EffectCreator creator);
 
-    IEffect* createEffect(const std::string& type, const std::string& params) const {
-        auto it = creators.find(type);
-        if (it != creators.end()) {
-            return it->second(params);
-        }
-        return nullptr;
-    }
-
+    // Method to create an effect based on its type
+    IEffect* createEffect(const std::string& type, int amount);
 private:
+    // Private constructor for singleton pattern
+    EffectFactory() = default;
+
+    // Map to store the effect creators
     std::map<std::string, EffectCreator> creators;
 };
 
-namespace {
-    bool healEffectRegistered = [] {
-        EffectFactory::instance().registerEffect("heal", [](const std::string& params) -> IEffect* {
-            int healAmount = std::stoi(params); // Convertir les paramètres en integer
-            return new HealEffect(healAmount);
-        });
-        return true;
-    }();
-
-    bool increaseFuryEffectRegistered = [] {
-        EffectFactory::instance().registerEffect("increase_fury", [](const std::string& params) -> IEffect* {
-            int furyAmount = std::stoi(params);
-            return new IncreaseFuryEffect(furyAmount);
-        });
-        return true;
-    };
-}
+void    registerAllEffects();
