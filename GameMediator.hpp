@@ -5,9 +5,8 @@
 
 class GameMediator {
 public:
-    void playerAttack(Player& player, Enemy& enemy) {
-        std::cout << "Player attacks the enemy!" << std::endl;
-        enemy.takeDamage(10);  // Logique de dommage ou autre effet
+    void playerTurn(Player& player, Enemy& enemy) {
+          // Logique de dommage ou autre effet
     }
 
     void enemyAttack(Player& player, Enemy& enemy) {

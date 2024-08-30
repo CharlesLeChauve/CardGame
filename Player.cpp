@@ -32,3 +32,28 @@ void Player::performSpecialAbility() {
     std::cout << getName() << " performs a special ability!" << std::endl;
 }
 
+
+void Player::playTurn(ACharacter& opponent)
+{
+    std::string i_str;
+    int nbr;
+
+    drawN(5);
+    this->printHand();
+    std::cout << "Choose index or END to end your turn : ";
+    std::cin >> i_str;
+    if (i_str.compare("END") == 0)
+    {
+        this->discardAll();
+        return ;
+    }
+    std::stringstream ss(i_str);
+    ss >> nbr;
+    if (ss.fail())
+        std::cout << "Invalid input. Please enter a valid number." << std::endl;
+    else if (nbr > this->hand.size() || nbr < 0)
+        std::cout << "Please select a number between 0 && " << this->hand.size() - 1 << std::endl;
+    else
+        this->use(*(this->hand[nbr]), opponent, nbr);
+}
+

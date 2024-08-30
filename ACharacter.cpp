@@ -54,11 +54,22 @@ void ACharacter::draw() {
         hand.push_back(deck.draw());
 }
 
+void ACharacter::drawN(int n) {
+    for (int i = 0; i < n; ++i)
+    {
+        draw();
+    }
+}
+
 void ACharacter::printHand() const {
+    std::string str;
+    int n = 0;
+
     for (const auto& card : hand)
     {
         if (card) {
-            std::cout << card->getName() << std::endl;
+            std::cout << std::setw(10) << n << "|";
+            std::cout << card->getName() << "|";
             std::cout << card->getDescription() << std::endl;
 
             // for (const auto& effect : card->getEffects())
@@ -69,6 +80,7 @@ void ACharacter::printHand() const {
             //         std::cerr << "Warning: Null effect encountered." << std::endl;
             //     }
             // }
+            n++;
         } else {
             std::cerr << "Warning: Null card encountered in hand." << std::endl;
         }

@@ -29,9 +29,7 @@ void EffectFactory::registerEffect(const std::string& type, EffectCreator creato
 // Definition of the method to create an effect based on its type
 IEffect* EffectFactory::createEffect(const std::string& type, int amount) {
     auto it = creators.find(type);
-    std::cout << "Allo1" << std::endl;
     if (it != creators.end()) {
-        std::cout << "Allo" << std::endl;
 	    return it->second(amount);
     }
     return nullptr;

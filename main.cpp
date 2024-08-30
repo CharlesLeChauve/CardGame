@@ -21,20 +21,12 @@ int main(void)
 	// deck.printDeck();
 	collection.getInstance();
 	Enemy enemy("Hippie");
-
 	Player player("Me");
-	player.draw();
-	player.draw();
-	player.draw();
-	player.draw();
-	player.draw();
-	player.printHand();
-	player.hand[0]->getName();
-	player.use(*(player.hand[0]), enemy, 0);
-	player.use(*(player.hand[0]), enemy, 0);
-	player.use(*(player.hand[0]), enemy, 0);
-	player.use(*(player.hand[0]), enemy, 0);
-	player.use(*(player.hand[0]), enemy, 0);
-	std::cout << player.getHP() << std::endl;
-	std::cout << enemy.getHP() << std::endl;
+
+	while (player.getHP() > 0 && enemy.getHP() > 0)
+	{
+	// std::cout << player.getHP() << std::endl;
+	// std::cout << enemy.getHP() << std::endl;
+		player.playTurn(enemy);
+	}
 }

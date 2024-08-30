@@ -12,4 +12,7 @@ public:
     // Implémentation des méthodes virtuelles pures de ACharacter
     void use(Card& card, ACharacter& opponent, int index) override;
     void performSpecialAbility() override;
+
+    //turn method
+    void playTurn(ACharacter& opponent);
 };
