@@ -58,6 +58,19 @@
                 }
             ],
             "description" : "Gain 3 Armor, Gain 1 Energy"
+        },
+        "Flower Power": {
+            "cost": 1,
+            "effects": [
+                {
+                    "parameters": {
+                        "amount" : -3,
+                        "target" : "Opponent"
+                    },
+                    "type": "increase_fury"
+                }
+            ],
+            "description": "Your Opponent loses 3 Fury"
         }
     }
 }

@@ -1,4 +1,6 @@
 #include "Deck.hpp"
+#include "json.hpp"
+using json = nlohmann::json;
 
 // Initialisation du Deck avec des cartes aléatoires
 Deck::Deck() {
@@ -11,6 +13,29 @@ Deck::Deck() {
     cards.push_back(collection.getCard("BioStim"));
     cards.push_back(collection.getCard("Take Cover"));
     cards.push_back(collection.getCard("Take Cover"));
+}
+
+Deck::Deck(const std::string& prefab) {
+    Collection& collection = Collection::getInstance();
+    std::ifstream file("baseDecks.json");
+    if (!file.is_open()) {
+        throw std::runtime_error("Could not open baseDecks.json");
+    }
+
+    json j;
+    file >> j;
+    file.close();
+
+    if (!j.contains(prefab) || !j[prefab].is_array()) {
+        throw std::runtime_error("Invalid or missing 'cards' field in JSON.");
+    }
+    else
+    {
+        for (const auto& card : j[prefab])
+        {
+            cards.push_back(collection.getCard(j[prefab]));
+        }
+    }
 }
 
 Deck::~Deck()

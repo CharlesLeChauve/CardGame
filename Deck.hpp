@@ -16,6 +16,7 @@ private:
 
 public:
     Deck();
+    Deck(const std::string& prefab);
     ~Deck();
 
     void shuffle();
