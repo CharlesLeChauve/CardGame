@@ -33,6 +33,7 @@ public:
     // Gestion du deck, de la main et de la pile de défausse
     virtual void draw();
     virtual void drawN(int n);
+	virtual void discardAll();
     virtual void printHand() const;
     virtual void shuffleDiscard();
 

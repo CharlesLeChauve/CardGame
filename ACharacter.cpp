@@ -87,6 +87,15 @@ void ACharacter::printHand() const {
     }
 }
 
+void ACharacter::discardAll()
+{
+	std::cout << "Shuffling hand into discard pile..." << std::endl;
+    while (!hand.empty()) {
+        discardPile.push_back(std::move(hand.back()));
+        hand.pop_back();
+    }
+}
+
 void ACharacter::shuffleDiscard() {
     std::cout << "Shuffling discard pile into deck..." << std::endl;
     while (!discardPile.empty()) {

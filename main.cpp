@@ -23,10 +23,10 @@ int main(void)
 	Enemy enemy("Hippie");
 	Player player("Me");
 
-	while (player.getHP() > 0 && enemy.getHP() > 0)
-	{
+	// while (player.getHP() > 0 && enemy.getHP() > 0)
+	// {
 	// std::cout << player.getHP() << std::endl;
 	// std::cout << enemy.getHP() << std::endl;
 		player.playTurn(enemy);
-	}
+	// }
 }
