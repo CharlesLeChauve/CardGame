@@ -16,6 +16,7 @@ public:
     int hp;
     std::vector<std::unique_ptr<Card>> hand;
     std::vector<std::unique_ptr<Card>> discardPile;
+    //std::vector<
     ACharacter(const std::string& name, int max_hp, int hand_size);
     virtual ~ACharacter();
 

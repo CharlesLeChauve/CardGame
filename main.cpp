@@ -9,6 +9,7 @@
 #include "Player.hpp"
 #include "Enemy.hpp"
 #include "EffectFactory.hpp"
+#include "TermDisplay.hpp"
 
 int main(void)
 {
@@ -23,10 +24,9 @@ int main(void)
 	Enemy enemy("Hippie");
 	Player player("Me");
 
-	// while (player.getHP() > 0 && enemy.getHP() > 0)
-	// {
-	// std::cout << player.getHP() << std::endl;
-	// std::cout << enemy.getHP() << std::endl;
+	while (player.getHP() > 0 && enemy.getHP() > 0)
+	{
+		displayGameState(player, enemy);
 		player.playTurn(enemy);
-	// }
+	}
 }

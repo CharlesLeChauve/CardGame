@@ -2,7 +2,7 @@
 NAME    = Cyberogue
 CXX     = c++
 FLAGS   = -g -std=c++17 #-Wall -Werror
-SRC     = CEffects.cpp EffectFactory.cpp Card.cpp Deck.cpp ACharacter.cpp Enemy.cpp Player.cpp main.cpp Collection.cpp
+SRC     = TermDisplay.cpp CEffects.cpp EffectFactory.cpp Card.cpp Deck.cpp ACharacter.cpp Enemy.cpp Player.cpp main.cpp Collection.cpp
 OBJ     = $(SRC:.cpp=.o)
 RM      = rm -f
 

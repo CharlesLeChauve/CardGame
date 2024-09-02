@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include "TermDisplay.hpp"
 
 // Constructeur
 Player::Player(const std::string& name)
@@ -53,10 +54,11 @@ void Player::playTurn(ACharacter& opponent)
 		ss >> nbr;
 		if (ss.fail())
 			std::cout << "Invalid input. Please enter a valid number." << std::endl;
-		else if (nbr >= this->hand.size() || nbr < 0)
-			std::cout << "Please select a number between 0 && " << this->hand.size() - 1 << std::endl;
+		else if (nbr > this->hand.size() || nbr <= 0)
+			std::cout << "Please select a number between 1 && " << this->hand.size() << std::endl;
 		else
-			this->use(*(this->hand[nbr]), opponent, nbr);
+			this->use(*(this->hand[nbr - 1]), opponent, nbr - 1);
+		displayGameState(*this, opponent);
 	}
 }
 

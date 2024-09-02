@@ -26,7 +26,7 @@ public:
         return initialize("cards.json");
     }
 
-    // Retourne une copie de la carte
+    // Retourne une copie de la carte -- "Clone() dans le design Pattern Factory"
     std::unique_ptr<Card> getCard(const std::string& card_name) const;
 
     // Retourne une carte aléatoire

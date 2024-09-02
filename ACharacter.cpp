@@ -63,7 +63,7 @@ void ACharacter::drawN(int n) {
 
 void ACharacter::printHand() const {
     std::string str;
-    int n = 0;
+    int n = 1;
 
     for (const auto& card : hand)
     {
@@ -71,15 +71,6 @@ void ACharacter::printHand() const {
             std::cout << std::setw(10) << n << "|";
             std::cout << card->getName() << "|";
             std::cout << card->getDescription() << std::endl;
-
-            // for (const auto& effect : card->getEffects())
-            // {
-            //     if (effect) {
-            //         std::cout << effect->getDescription() << std::endl;
-            //     } else {
-            //         std::cerr << "Warning: Null effect encountered." << std::endl;
-            //     }
-            // }
             n++;
         } else {
             std::cerr << "Warning: Null card encountered in hand." << std::endl;

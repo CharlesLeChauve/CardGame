@@ -26,9 +26,17 @@
             ],
             "description": "Heal 5 Hp"
         },
-        "Guard": {
+        "Testo Shot": {
             "cost": 1,
-            "effects": [],
+            "effects": [
+                {
+                    "parameters": {
+                        "amount" : 1,
+                        "target" : "Holder"
+                    },
+                    "type": "increase_fury"
+                }
+            ],
             "description": "Gain 3 Armor"
         }
     }

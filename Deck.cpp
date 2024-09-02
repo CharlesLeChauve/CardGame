@@ -5,7 +5,7 @@ Deck::Deck() {
     Collection& collection = Collection::getInstance();
     cards.push_back(collection.getCard("Healing Potion"));
     cards.push_back(collection.getCard("Punch"));
-    cards.push_back(collection.getCard("Guard"));
+    cards.push_back(collection.getCard("Testo Shot"));
     cards.push_back(collection.getCard("Punch"));
     cards.push_back(collection.getCard("Punch"));
     cards.push_back(collection.getCard("Healing Potion"));

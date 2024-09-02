@@ -31,3 +31,11 @@ public:
     std::string getDescription() const override;
 };
 
+class IncreaseArmorEffect : public IEffect {
+private:
+    int amount;
+public:
+    IncreaseArmorEffect(int amount) : amount(amount) {}
+    void apply(ACharacter* target) const override;
+    std::string getDescription() const override;
+};
