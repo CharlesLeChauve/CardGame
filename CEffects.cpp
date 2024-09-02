@@ -1,14 +1,14 @@
 #include "CEffects.hpp"
 
-void IncreaseFuryEffect::apply(ACharacter* target) const {
-    target->increaseFury(amount);
+void IncreaseFuryEffect::apply(ACharacter* target, ACharacter* holder) const {
+    target->addBuff("fury", amount);
 }
 
 std::string IncreaseFuryEffect::getDescription() const {
     return "Increase Fury by " + std::to_string(amount);
 }
 
-void    HealEffect::apply(ACharacter* target) const {
+void    HealEffect::apply(ACharacter* target, ACharacter* holder) const {
     int finalAmount = amount;
 
     if (target->getHP() + amount > target->getMaxHP())
@@ -22,18 +22,28 @@ std::string HealEffect::getDescription() const {
     return ("Heals for " + std::to_string(amount) + " hp.");
 }
 
-void   DamageEffect::apply(ACharacter* target) const {
-    target->takeDamage(amount);
+void   DamageEffect::apply(ACharacter* target, ACharacter* holder) const {
+    int finalAmount = amount + holder->getBuffAmount("fury");
+    std::cout << "damage augmented by : " << holder->getBuffAmount("fury");
+    target->takeDamage(finalAmount);
 }
 
 std::string DamageEffect::getDescription() const {
     return ("Inflict " + std::to_string(amount) + " damage.");
 }
 
-void IncreaseArmorEffect::apply(ACharacter* target) const {
-    target->increaseFury(amount);
+void IncreaseArmorEffect::apply(ACharacter* target, ACharacter* holder) const {
+    target->addBuff("armor", amount);
 }
 
 std::string IncreaseArmorEffect::getDescription() const {
-    return "Increase Fury by " + std::to_string(amount);
+    return "Increase Armor by " + std::to_string(amount);
+}
+
+void IncreaseEnergyEffect::apply(ACharacter* target, ACharacter* holder) const {
+    target->energy += amount;
+}
+
+std::string IncreaseEnergyEffect::getDescription() const {
+    return "Increase energy by " + std::to_string(amount);
 }

@@ -35,5 +35,6 @@ public:
     void applyEffects(ACharacter& holder, ACharacter& opponent) const ;
     const std::string& getName() const;
 	const std::string& getDescription() const;
+    int getCost() const;
     // const std::vector<IEffect*>& getEffects() const;
 };

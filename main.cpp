@@ -26,7 +26,8 @@ int main(void)
 
 	while (player.getHP() > 0 && enemy.getHP() > 0)
 	{
-		displayGameState(player, enemy);
+		// displayGameState(player, enemy);
 		player.playTurn(enemy);
+		enemy.playTurn(player);
 	}
 }

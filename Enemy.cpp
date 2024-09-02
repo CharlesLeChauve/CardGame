@@ -1,4 +1,5 @@
 #include "Enemy.hpp"
+#include "TermDisplay.hpp"
 
 // Constructeur
 Enemy::Enemy(const std::string& name)
@@ -9,15 +10,20 @@ Enemy::Enemy(const std::string& name)
 // Destructeur
 Enemy::~Enemy() = default;
 
-// Implémentation de la méthode virtuelle pure 'use' depuis ACharacter
-void Enemy::use(Card& card, ACharacter& target, int index) {
-    std::cout << getName() << " uses " << card.getName() << " on " << target.getName() << std::endl;
-    card.applyEffects(target, *this);  // Applique l'effet de la carte
-}
-
 // Implémentation de la méthode virtuelle pure 'performSpecialAbility'
 void Enemy::performSpecialAbility() {
     // Logique spécifique à la capacité spéciale du joueur
     std::cout << getName() << " performs a special ability!" << std::endl;
 }
 
+void Enemy::playTurn(ACharacter& opponent)
+{
+    drawN(3);
+    energy += energyCapacity;
+	while (this->hand.size() > 0)
+	{
+		this->printHand();
+		this->use(*(this->hand[0]), opponent, 0);
+		displayGameState(*this, opponent);
+	}
+}

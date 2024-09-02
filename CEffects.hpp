@@ -9,7 +9,7 @@ private:
     int amount;
 public:
     IncreaseFuryEffect(int amount) : amount(amount) {}
-    void apply(ACharacter* target) const override;
+    void apply(ACharacter* target, ACharacter* holder) const override;
     std::string getDescription() const override;
 };
 
@@ -18,7 +18,7 @@ private:
     int amount;
 public:
     HealEffect(int amount) : amount(amount) {}
-    void apply(ACharacter* target) const override;
+    void apply(ACharacter* target, ACharacter* holder) const override;
     std::string getDescription() const override;
 };
 
@@ -27,7 +27,7 @@ private:
     int amount;
 public:
     DamageEffect(int amount) : amount(amount) {}
-    void apply(ACharacter* target) const override;
+    void apply(ACharacter* target, ACharacter* holder) const override;
     std::string getDescription() const override;
 };
 
@@ -36,6 +36,15 @@ private:
     int amount;
 public:
     IncreaseArmorEffect(int amount) : amount(amount) {}
-    void apply(ACharacter* target) const override;
+    void apply(ACharacter* target, ACharacter* holder) const override;
+    std::string getDescription() const override;
+};
+
+class IncreaseEnergyEffect : public IEffect {
+private:
+    int amount;
+public:
+    IncreaseEnergyEffect(int amount) : amount(amount) {}
+    void apply(ACharacter* target, ACharacter* holder) const override;
     std::string getDescription() const override;
 };

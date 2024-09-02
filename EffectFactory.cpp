@@ -26,7 +26,7 @@ void EffectFactory::registerEffect(const std::string& type, EffectCreator creato
     creators[type] = creator;
 }
 
-// Definition of the method to create an effect based on its type
+// Definition of the method to create an effect based on its type -- clone()
 IEffect* EffectFactory::createEffect(const std::string& type, int amount) {
     auto it = creators.find(type);
     if (it != creators.end()) {
@@ -53,6 +53,22 @@ void    registerAllEffects()
                 return new IncreaseFuryEffect(amount);
             } catch (const std::exception& e) {
                 std::cerr << "Failed to parse parameters for IncreaseFuryEffect: " << e.what() << std::endl;
+                throw;
+            }
+        }},
+        {"increase_armor", [](int amount) -> IEffect* {
+            try {
+                return new IncreaseArmorEffect(amount);
+            } catch (const std::exception& e) {
+                std::cerr << "Failed to parse parameters for IncreaseArmorEffect: " << e.what() << std::endl;
+                throw;
+            }
+        }},
+        {"increase_energy", [](int amount) -> IEffect* {
+            try {
+                return new IncreaseEnergyEffect(amount);
+            } catch (const std::exception& e) {
+                std::cerr << "Failed to parse parameters for IncreaseEnergyEffect: " << e.what() << std::endl;
                 throw;
             }
         }},

@@ -5,7 +5,7 @@
             "effects": [
                 {
 					"parameters": {
-                        "amount" : 5,
+                        "amount" : 3,
                         "target" : "Opponent"
                     },
 					"type": "damage"
@@ -13,8 +13,8 @@
             ],
             "description": "Deal 3 damage"
         },
-        "Healing Potion": {
-            "cost": 3,
+        "BioStim": {
+            "cost": 1,
             "effects": [
                 {
 					"parameters": {
@@ -24,7 +24,7 @@
 					"type": "heal"
                 }
             ],
-            "description": "Heal 5 Hp"
+            "description": "Heal 3 Hp"
         },
         "Testo Shot": {
             "cost": 1,
@@ -37,7 +37,27 @@
                     "type": "increase_fury"
                 }
             ],
-            "description": "Gain 3 Armor"
+            "description": "Gain 1 Fury"
+        },
+        "Take Cover": {
+            "cost": 1,
+            "effects": [
+                {
+                    "parameters": {
+                        "amount" : 3,
+                        "target" : "Holder"
+                    },
+                    "type": "increase_armor"
+                },
+                {
+                    "parameters": {
+                        "amount" : 1,
+                        "target" : "Holder"
+                    },
+                    "type": "increase_energy"
+                }
+            ],
+            "description" : "Gain 3 Armor, Gain 1 Energy"
         }
     }
 }

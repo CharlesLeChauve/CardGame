@@ -2,7 +2,7 @@
 
 // Constructeur
 ACharacter::ACharacter(const std::string& name, int max_hp, int hand_size)
-    : name(name), deck(), fury(0), max_hp(max_hp), hand_size(hand_size), hp(max_hp), discardPile() {}
+    : name(name), deck(), max_hp(max_hp), hand_size(hand_size), hp(max_hp), discardPile(), energy(0), energyCapacity(3) {}
 
 // Destructeur
 ACharacter::~ACharacter() = default;
@@ -20,8 +20,26 @@ const std::string& ACharacter::getName() const {
     return name;
 }
 
+int ACharacter::getEnergy() const
+{
+    return energy;
+}
+int ACharacter::getEnergyCap() const
+{
+    return energyCapacity;
+}
+
 void ACharacter::takeDamage(int damage) {
-    hp -= damage;
+    int finalDamage = damage;
+
+    if (getBuffAmount("armor"))
+    {
+        finalDamage -= getBuffAmount("armor");
+        addBuff("armor", damage * -1);
+    }
+    if (finalDamage < 0)
+        finalDamage = 0;
+    hp -= finalDamage;
     if (hp < 0) hp = 0;
 }
 
@@ -30,14 +48,25 @@ void ACharacter::heal(int amount) {
     //if (hp > max_hp) hp = max_hp;
 }
 
-// Gestion de la mécanique de jeu (exemple avec Fury)
-int ACharacter::getFury() const {
-    return fury;
+int ACharacter::getBuffAmount(const std::string& type) const {
+    auto it = buffs.find(type);
+    if (it == buffs.end()) {
+        return 0;
+    }
+    return it->second;
 }
 
-void ACharacter::increaseFury(int amount) {
-    fury += amount;
-}
+void ACharacter::addBuff(std::string type, int amount)
+    {
+        if (buffs.find(type) == buffs.end() && amount > 0)
+            buffs.emplace(type, amount);
+        else
+        {
+            buffs[type] += amount;
+            if (buffs[type] <= 0)
+                buffs.erase(type);
+        }
+    }
 
 // Gestion du deck, de la main et de la pile de défausse
 void ACharacter::draw() {
@@ -62,20 +91,38 @@ void ACharacter::drawN(int n) {
 }
 
 void ACharacter::printHand() const {
-    std::string str;
+    std::cout << std::left; // Aligner le texte à gauche
+    std::cout << "   " << std::setw(4) << "No" << " | "
+              << std::setw(20) << "Name" << " | "
+              << std::setw(30) << "Description" << " | "
+              << std::setw(5) << "Cost" << std::endl;
+    std::cout << std::setfill('-') << std::setw(70) << "" << std::endl; // Ligne de séparation
+    std::cout << std::setfill(' '); // Remettre le remplissage à l'espace
     int n = 1;
-
-    for (const auto& card : hand)
-    {
+    for (const auto& card : hand) {
         if (card) {
-            std::cout << std::setw(10) << n << "|";
-            std::cout << card->getName() << "|";
-            std::cout << card->getDescription() << std::endl;
+            std::cout << "   " << std::setw(4) << n << " | "
+                      << std::setw(20) << card->getName() << " | "
+                      << std::setw(30) << card->getDescription() << " | "
+                      << std::setw(5) << card->getCost() << std::endl;
             n++;
         } else {
             std::cerr << "Warning: Null card encountered in hand." << std::endl;
         }
     }
+};
+void ACharacter::use(Card& card, ACharacter& opponent, int index) {
+    std::cout << getName() << " uses " << card.getName() << " on " << opponent.getName() << std::endl;
+    if (index < hand.size()) {
+            if (card.getCost() > energy)
+                return ;
+            energy -= card.getCost();
+            hand[index]->applyEffects(*this, opponent); // Appel de la méthode 'applyEffects' de la carte
+            discardPile.push_back(std::move(hand[index]));
+            hand.erase(hand.begin() + index);
+        } else {
+            std::cerr << "Invalid card index" << std::endl;
+        }
 }
 
 void ACharacter::discardAll()

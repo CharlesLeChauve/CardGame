@@ -10,6 +10,6 @@ public:
     ~Enemy();
 
     // Implémentation des méthodes virtuelles pures de ACharacter
-    void use(Card& card, ACharacter& target, int index) override;
     void performSpecialAbility() override;
+    void playTurn(ACharacter& opponent);
 };

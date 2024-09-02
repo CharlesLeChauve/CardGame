@@ -3,12 +3,14 @@
 // Initialisation du Deck avec des cartes aléatoires
 Deck::Deck() {
     Collection& collection = Collection::getInstance();
-    cards.push_back(collection.getCard("Healing Potion"));
+    cards.push_back(collection.getCard("BioStim"));
     cards.push_back(collection.getCard("Punch"));
     cards.push_back(collection.getCard("Testo Shot"));
     cards.push_back(collection.getCard("Punch"));
     cards.push_back(collection.getCard("Punch"));
-    cards.push_back(collection.getCard("Healing Potion"));
+    cards.push_back(collection.getCard("BioStim"));
+    cards.push_back(collection.getCard("Take Cover"));
+    cards.push_back(collection.getCard("Take Cover"));
 }
 
 Deck::~Deck()

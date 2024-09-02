@@ -10,23 +10,6 @@ Player::Player(const std::string& name)
 // Destructeur
 Player::~Player() = default;
 
-// Implémentation de la méthode virtuelle pure 'use' depuis ACharacter
-void Player::use(Card& card, ACharacter& opponent, int index) {
-    std::cout << getName() << " uses " << card.getName() << " on " << opponent.getName() << std::endl;
-    if (index < hand.size()) {
-            // 1. Utiliser les effets de la carte
-            hand[index]->applyEffects(*this, opponent); // Appel de la méthode 'applyEffects' de la carte
-
-            // 2. Déplacer la carte vers la discardPile
-            discardPile.push_back(std::move(hand[index]));
-
-            // 3. Supprimer l'élément nul du vector hand
-            hand.erase(hand.begin() + index);
-        } else {
-            std::cerr << "Invalid card index" << std::endl;
-        }
-}
-
 // Implémentation de la méthode virtuelle pure 'performSpecialAbility'
 void Player::performSpecialAbility() {
     // Logique spécifique à la capacité spéciale du joueur
@@ -40,8 +23,10 @@ void Player::playTurn(ACharacter& opponent)
     int nbr;
 
     drawN(5);
+	energy += energyCapacity;
 	while (1)
 	{
+		displayGameState(*this, opponent);
 		this->printHand();
 		std::cout << "Choose index or END to end your turn : ";
 		std::cin >> i_str;
@@ -58,7 +43,6 @@ void Player::playTurn(ACharacter& opponent)
 			std::cout << "Please select a number between 1 && " << this->hand.size() << std::endl;
 		else
 			this->use(*(this->hand[nbr - 1]), opponent, nbr - 1);
-		displayGameState(*this, opponent);
 	}
 }
 

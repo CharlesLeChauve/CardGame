@@ -11,9 +11,13 @@ void Card::addEffect(IEffect* effect, std::string target_type) {
 void Card::applyEffects(ACharacter& holder, ACharacter& opponent) const {
         for (const auto& targetedEffect : effects) {
             ACharacter* target = (targetedEffect.target == TargetType::Holder) ? &holder : &opponent;
-            targetedEffect.effect->apply(target);
+            targetedEffect.effect->apply(target, &holder);
         }
     }
+
+int Card::getCost() const {
+    return cost;
+}
 
 const std::string& Card::getName() const {
     return name;
