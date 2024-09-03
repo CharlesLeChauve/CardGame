@@ -1,5 +1,6 @@
 #pragma once
 #include "ACharacter.hpp"
+#include "DamageCalc.hpp"
 #include <string>
 
 class IEffect;

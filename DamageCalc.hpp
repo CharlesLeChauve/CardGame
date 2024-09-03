@@ -1,14 +1,31 @@
-// CombatCalculator.hpp
 #pragma once
-#include "Player.hpp"
-#include "Enemy.hpp"
+#include "ACharacter.hpp"
 #include "Card.hpp"
 
-class CombatCalculator {
+class DamageCalculator {
 public:
-    // Calcule les dégâts que le joueur inflige à un ennemi
-    int calculateDamage(Player& player, Enemy& enemy, Card& attackCard);
+    static int calculateDamage(int baseDamage, ACharacter* attacker, ACharacter* target) {
+        int finalDamage = baseDamage;
 
-    // Autres calculs possibles comme défense, esquive, etc.
-    int calculateDefense(Player& player, Enemy& enemy);
+        // Prendre en compte les buffs de l'attaquant (exemple : furie)
+        finalDamage += attacker->getBuffAmount("fury");
+
+        // Prendre en compte les buffs de la cible (exemple : armure)
+        if (target->getBuffAmount("armor")) {
+            finalDamage -= target->getBuffAmount("armor");
+            target->addBuff("armor", baseDamage * -1);
+        }
+
+        // S'assurer que les dégâts ne sont pas négatifs
+        if (finalDamage < 0) {
+            finalDamage = 0;
+        }
+
+        // Appliquer les dégâts à la cible
+        // target->takeDamage(finalDamage);
+        // if (target->hp < 0) target->hp = 0;
+
+        // Créer le résultat des dégâts
+        return finalDamage;
+    }
 };

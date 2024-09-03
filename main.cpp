@@ -10,6 +10,7 @@
 #include "Enemy.hpp"
 #include "EffectFactory.hpp"
 #include "TermDisplay.hpp"
+#include "FightInstance.hpp"
 
 int main(void)
 {
@@ -21,13 +22,20 @@ int main(void)
 	// deck.shuffle();
 	// deck.printDeck();
 	collection.getInstance();
-	Enemy enemy("Hippie");
-	Player player("Me");
+	std::cout << "Welcome in CybeRogue !" << std::endl;
+	std::cout << "Please select a name : ";
+	std::string playerName;
+	std::getline(std::cin, playerName);
+	Player player(playerName);
 
-	while (player.getHP() > 0 && enemy.getHP() > 0)
+	while (1)
 	{
-		// displayGameState(player, enemy);
-		player.playTurn(enemy);
-		enemy.playTurn(player);
+		std::cout << "Choose your enemy : ";
+		std::string enemyName;
+		std::getline(std::cin, enemyName);
+		Enemy enemy(enemyName);
+		FightInstance fight = FightInstance(player, enemy);
+		fight.handleFight();
 	}
+
 }

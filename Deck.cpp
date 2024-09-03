@@ -3,17 +3,17 @@
 using json = nlohmann::json;
 
 // Initialisation du Deck avec des cartes aléatoires
-Deck::Deck() {
-    Collection& collection = Collection::getInstance();
-    cards.push_back(collection.getCard("BioStim"));
-    cards.push_back(collection.getCard("Punch"));
-    cards.push_back(collection.getCard("Testo Shot"));
-    cards.push_back(collection.getCard("Punch"));
-    cards.push_back(collection.getCard("Punch"));
-    cards.push_back(collection.getCard("BioStim"));
-    cards.push_back(collection.getCard("Take Cover"));
-    cards.push_back(collection.getCard("Take Cover"));
-}
+// Deck::Deck() {
+//     Collection& collection = Collection::getInstance();
+//     cards.push_back(collection.getCard("BioStim"));
+//     cards.push_back(collection.getCard("Punch"));
+//     cards.push_back(collection.getCard("Testo Shot"));
+//     cards.push_back(collection.getCard("Punch"));
+//     cards.push_back(collection.getCard("Punch"));
+//     cards.push_back(collection.getCard("BioStim"));
+//     cards.push_back(collection.getCard("Take Cover"));
+//     cards.push_back(collection.getCard("Take Cover"));
+// }
 
 Deck::Deck(const std::string& prefab) {
     Collection& collection = Collection::getInstance();
@@ -33,7 +33,7 @@ Deck::Deck(const std::string& prefab) {
     {
         for (const auto& card : j[prefab])
         {
-            cards.push_back(collection.getCard(j[prefab]));
+            cards.push_back(collection.getCard(card));
         }
     }
 }

@@ -13,5 +13,5 @@ public:
     void performSpecialAbility() override;
 
     //turn method
-    void playTurn(ACharacter& opponent);
+    void playTurn(ACharacter& opponent) override;
 };

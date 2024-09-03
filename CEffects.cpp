@@ -23,8 +23,7 @@ std::string HealEffect::getDescription() const {
 }
 
 void   DamageEffect::apply(ACharacter* target, ACharacter* holder) const {
-    int finalAmount = amount + holder->getBuffAmount("fury");
-    std::cout << "damage augmented by : " << holder->getBuffAmount("fury");
+    int finalAmount = DamageCalculator::calculateDamage(amount, holder, target);
     target->takeDamage(finalAmount);
 }
 

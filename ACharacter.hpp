@@ -18,7 +18,7 @@ public:
     std::vector<std::unique_ptr<Card>> hand;
     std::vector<std::unique_ptr<Card>> discardPile;
     std::map<std::string, int> buffs;
-    ACharacter(const std::string& name, int max_hp, int hand_size);
+    ACharacter(const std::string& name, int max_hp, std::string baseDeck);
     virtual ~ACharacter();
 
     // Méthodes communes à tous les personnages
@@ -29,6 +29,7 @@ public:
     const std::string& getName() const;
 
     void addBuff(std::string type, int amount);
+    void discardBuffs();
     
     void takeDamage(int damage);
     void heal(int amount);
@@ -44,6 +45,7 @@ public:
 	virtual void discardAll();
     virtual void printHand() const;
     virtual void shuffleDiscard();
+    virtual void playTurn(ACharacter& opponent) = 0;
 
     // Méthodes virtuelles pures
     virtual void performSpecialAbility() = 0;

@@ -3,7 +3,7 @@
 
 // Constructeur
 Player::Player(const std::string& name)
-    : ACharacter(name, 100, 5)  // Initialise ACharacter avec des valeurs spécifiques au joueur
+    : ACharacter(name, 100, "basePlayer")  // Initialise ACharacter avec des valeurs spécifiques au joueur
 {
 }
 
@@ -43,6 +43,8 @@ void Player::playTurn(ACharacter& opponent)
 			std::cout << "Please select a number between 1 && " << this->hand.size() << std::endl;
 		else
 			this->use(*(this->hand[nbr - 1]), opponent, nbr - 1);
+		if (this->getHP() <= 0 || opponent.getHP() <= 0)
+			break ;
 	}
 }
 

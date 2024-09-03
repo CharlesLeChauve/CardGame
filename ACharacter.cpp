@@ -1,8 +1,9 @@
 #include "ACharacter.hpp"
 
 // Constructeur
-ACharacter::ACharacter(const std::string& name, int max_hp, int hand_size)
-    : name(name), deck(), max_hp(max_hp), hand_size(hand_size), hp(max_hp), discardPile(), energy(0), energyCapacity(3) {}
+ACharacter::ACharacter(const std::string& name, int max_hp, std::string baseDeck)
+    : name(name), deck(baseDeck), max_hp(max_hp), hand_size(5), hp(max_hp), discardPile(), energy(0), energyCapacity(3) {
+    }
 
 // Destructeur
 ACharacter::~ACharacter() = default;
@@ -30,16 +31,7 @@ int ACharacter::getEnergyCap() const
 }
 
 void ACharacter::takeDamage(int damage) {
-    int finalDamage = damage;
-
-    if (getBuffAmount("armor"))
-    {
-        finalDamage -= getBuffAmount("armor");
-        addBuff("armor", damage * -1);
-    }
-    if (finalDamage < 0)
-        finalDamage = 0;
-    hp -= finalDamage;
+    hp -= damage;
     if (hp < 0) hp = 0;
 }
 
@@ -68,6 +60,11 @@ void ACharacter::addBuff(std::string type, int amount)
         }
     }
 
+void ACharacter::discardBuffs()
+{
+    this->buffs.clear();
+}
+
 // Gestion du deck, de la main et de la pile de défausse
 void ACharacter::draw() {
     if (deck.getSize() == 0) {
@@ -92,18 +89,18 @@ void ACharacter::drawN(int n) {
 
 void ACharacter::printHand() const {
     std::cout << std::left; // Aligner le texte à gauche
-    std::cout << "   " << std::setw(4) << "No" << " | "
+    std::cout << " " << std::setw(4) << "No" << " | "
               << std::setw(20) << "Name" << " | "
-              << std::setw(30) << "Description" << " | "
+              << std::setw(40) << "Description" << " | "
               << std::setw(5) << "Cost" << std::endl;
     std::cout << std::setfill('-') << std::setw(70) << "" << std::endl; // Ligne de séparation
     std::cout << std::setfill(' '); // Remettre le remplissage à l'espace
     int n = 1;
     for (const auto& card : hand) {
         if (card) {
-            std::cout << "   " << std::setw(4) << n << " | "
+            std::cout << " " << std::setw(4) << n << " | "
                       << std::setw(20) << card->getName() << " | "
-                      << std::setw(30) << card->getDescription() << " | "
+                      << std::setw(40) << card->getDescription() << " | "
                       << std::setw(5) << card->getCost() << std::endl;
             n++;
         } else {
@@ -111,6 +108,7 @@ void ACharacter::printHand() const {
         }
     }
 };
+
 void ACharacter::use(Card& card, ACharacter& opponent, int index) {
     std::cout << getName() << " uses " << card.getName() << " on " << opponent.getName() << std::endl;
     if (index < hand.size()) {

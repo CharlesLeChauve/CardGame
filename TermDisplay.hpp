@@ -3,6 +3,8 @@
 #include <iomanip> // Pour std::setw et std::setfill
 #include "ACharacter.hpp"
 
+#define TERMWIDTH 80
+
 void displayCharacterInfo(const ACharacter& character);
 void displayGameState(const ACharacter& player1, const ACharacter& player2);
 
@@ -24,4 +26,6 @@ namespace Color {
     constexpr const char* bold_magenta = "\033[1m\033[35m";
     constexpr const char* bold_cyan   = "\033[1m\033[36m";
     constexpr const char* bold_white  = "\033[1m\033[37m";
+    constexpr const char* orange      = "\033[38;5;208m"; // Orange dans les codes 256 couleurs
+    constexpr const char* bold_orange = "\033[1m\033[38;5;208m";
 }

@@ -11,5 +11,6 @@ public:
 
     // Implémentation des méthodes virtuelles pures de ACharacter
     void performSpecialAbility() override;
-    void playTurn(ACharacter& opponent);
+    void playTurn(ACharacter& opponent) override;
+    void setStatsFromTemplate();
 };
