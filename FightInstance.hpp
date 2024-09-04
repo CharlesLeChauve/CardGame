@@ -1,5 +1,6 @@
 #pragma once
 #include "ACharacter.hpp"
+#include "BuffFactory.hpp"
 #include <iostream>
 
 class FightInstance

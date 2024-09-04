@@ -41,6 +41,7 @@ void Enemy::setStatsFromTemplate()
 void Enemy::playTurn(ACharacter& opponent)
 {
     drawN(3);
+	buffAdjust();
     energy += energyCapacity;
 	while (this->hand.size() > 0 && energy > 0)
 	{

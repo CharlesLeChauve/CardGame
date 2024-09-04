@@ -1,0 +1,1 @@
+CreateBuff dans BuffFactory produit probablement des leaks, Smart pointeur ??

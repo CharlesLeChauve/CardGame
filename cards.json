@@ -59,6 +59,40 @@
             ],
             "description" : "Gain 3 Armor, Gain 1 Energy"
         },
+        "Barrage Shot": {
+            "cost": 2,
+            "effects": [
+                {
+                    "parameters": {
+                        "amount" : 1,
+                        "target" : "Holder"
+                    },
+                    "type": "increase_fury"
+                },
+                {
+                    "parameters": {
+                        "amount" : 1,
+                        "target" : "Opponent"
+                    },
+                    "type": "damage"
+                },
+                {
+                    "parameters": {
+                        "amount" : 1,
+                        "target" : "Opponent"
+                    },
+                    "type": "damage"
+                },
+                {
+                    "parameters": {
+                        "amount" : 1,
+                        "target" : "Opponent"
+                    },
+                    "type": "damage"
+                }
+            ],
+            "description" : "Increase fury by 1 then deal 1 damage 3 times"
+        },
         "Flower Power": {
             "cost": 1,
             "effects": [

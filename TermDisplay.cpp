@@ -28,9 +28,9 @@ void displayHpEnergy(const ACharacter& character)
 void    displayBuffs(const ACharacter& character)
 {
     if (character.getBuffAmount("fury") > 0)
-	    std::cout << "😠:" << character.getBuffAmount("fury") << "   ";
+	    std::cout << "😠 :" << character.getBuffAmount("fury") << "   ";
 	if (character.getBuffAmount("armor") > 0)
-        std::cout << "🛡️:" << character.getBuffAmount("armor") << "   ";
+        std::cout << "🛡️ :" << character.getBuffAmount("armor") << "   ";
     std::cout << std::endl;
 }
 

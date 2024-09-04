@@ -41,24 +41,49 @@ void ACharacter::heal(int amount) {
 }
 
 int ACharacter::getBuffAmount(const std::string& type) const {
-    auto it = buffs.find(type);
+    auto it = std::find_if(buffs.begin(), buffs.end(), [type](const Buff* buff) {
+        return buff->getType() == type;  // Accéder aux membres via l'opérateur `->`
+    });
     if (it == buffs.end()) {
         return 0;
     }
-    return it->second;
+    return (*it)->getAmount();  // Déréférencement pour accéder à l'objet
+}
+
+void ACharacter::buffAdjust()
+{
+    auto it = buffs.begin();
+    while (it != buffs.end()) {
+        if ((*it)->hasTag("Vanish")) {
+            it = buffs.erase(it);  // erase renvoie un itérateur vers l'élément suivant
+        } else if ((*it)->hasTag("Fade")){
+            (*it)->decreaseAmount(1);
+            ++it;  // Incrémenter l'itérateur manuellement si aucun élément n'est supprimé
+        } else {
+            ++it;  // Incrémenter l'itérateur manuellement si aucun élément n'est supprimé
+        }
+    }
 }
 
 void ACharacter::addBuff(std::string type, int amount)
-    {
-        if (buffs.find(type) == buffs.end() && amount > 0)
-            buffs.emplace(type, amount);
-        else
-        {
-            buffs[type] += amount;
-            if (buffs[type] <= 0)
-                buffs.erase(type);
+{
+    auto it = std::find_if(buffs.begin(), buffs.end(), [type](const Buff* buff) {
+        return buff->getType() == type;
+    });
+    if (it != buffs.end()) {
+        (*it)->increaseAmount(amount);
+        if ((*it)->getAmount() <= 0) {
+            delete *it;  // Suppression de l'objet pointé avant l'effacement du pointeur
+            buffs.erase(it);
         }
     }
+    else
+    {
+        BuffFactory& factory = BuffFactory::instance();
+        buffs.push_back(factory.createBuff(type, amount));  // Crée un nouvel objet Buff et l'ajoute au vecteur
+    }
+}
+
 
 void ACharacter::discardBuffs()
 {

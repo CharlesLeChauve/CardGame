@@ -11,9 +11,11 @@
 #include "EffectFactory.hpp"
 #include "TermDisplay.hpp"
 #include "FightInstance.hpp"
+#include "Buff.hpp"
 
 int main(void)
 {
+	registerAllBuffs();
 	registerAllEffects();
 	Collection& collection = Collection::initialize("cards.json");
 	// Deck deck;

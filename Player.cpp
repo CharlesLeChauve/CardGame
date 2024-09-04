@@ -23,6 +23,7 @@ void Player::playTurn(ACharacter& opponent)
     int nbr;
 
     drawN(5);
+	buffAdjust();
 	energy += energyCapacity;
 	while (1)
 	{

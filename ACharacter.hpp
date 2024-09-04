@@ -5,6 +5,8 @@
 #include <memory>
 #include "Deck.hpp"
 #include "Card.hpp"
+#include "Buff.hpp"
+#include "BuffFactory.hpp"
 
 class ACharacter {
 public:
@@ -17,7 +19,7 @@ public:
     int energy;
     std::vector<std::unique_ptr<Card>> hand;
     std::vector<std::unique_ptr<Card>> discardPile;
-    std::map<std::string, int> buffs;
+    std::vector<Buff*> buffs;
     ACharacter(const std::string& name, int max_hp, std::string baseDeck);
     virtual ~ACharacter();
 
@@ -33,10 +35,9 @@ public:
     
     void takeDamage(int damage);
     void heal(int amount);
-    
-    int getFury() const;
 
     int getBuffAmount(const std::string& type) const;
+    void buffAdjust();
     void use(Card& card, ACharacter& target, int index);
 
     // Gestion du deck, de la main et de la pile de défausse
