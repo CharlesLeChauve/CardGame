@@ -5,9 +5,9 @@
 #include "IEffect.hpp" // Inclure le fichier d'en-tête de IEffect
 #include "CEffects.hpp"
 
-class HealEffect;
-class IncreaseFuryEffect;
-class DamageEffect;
+// class HealEffect;
+// class IncreaseFuryEffect;
+// class DamageEffect;
 
 using EffectCreator = std::function<IEffect*(int)>;
 
@@ -77,6 +77,14 @@ void    registerAllEffects()
                 return new DamageEffect(amount);
             } catch (const std::exception& e) {
                 std::cerr << "Failed to parse parameters for DamageEffect: " << e.what() << std::endl;
+                throw;
+            }
+        }},
+        {"draw", [](int amount) -> IEffect* {
+            try {
+                return new DrawEffect(amount);
+            } catch (const std::exception& e) {
+                std::cerr << "Failed to parse parameters for DrawEffect: " << e.what() << std::endl;
                 throw;
             }
         }}

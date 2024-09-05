@@ -49,3 +49,12 @@ public:
     void apply(ACharacter* target, ACharacter* holder) const override;
     std::string getDescription() const override;
 };
+
+class DrawEffect : public IEffect {
+private:
+    int amount;
+public:
+    DrawEffect(int amount) : amount(amount) {}
+    void apply(ACharacter* target, ACharacter* holder) const override;
+    std::string getDescription() const override;
+};

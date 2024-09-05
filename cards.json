@@ -39,6 +39,32 @@
             ],
             "description": "Gain 1 Fury"
         },
+        "Good Strategy": {
+            "cost": 2,
+            "effects": [
+                {
+                    "parameters": {
+                        "amount" : 3,
+                        "target" : "Holder"
+                    },
+                    "type": "draw"
+                }
+            ],
+            "description": "Draw 3 Cards"
+        },
+        "Adre Shot": {
+            "cost": 0,
+            "effects": [
+                {
+                    "parameters": {
+                        "amount" : 3,
+                        "target" : "Holder"
+                    },
+                    "type": "increase_energy"
+                }
+            ],
+            "description": "Gain 3 Energy"
+        },
         "Take Cover": {
             "cost": 1,
             "effects": [

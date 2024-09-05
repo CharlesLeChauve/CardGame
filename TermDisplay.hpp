@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip> // Pour std::setw et std::setfill
 #include "ACharacter.hpp"
+#include "Logger.hpp"
 
 #define TERMWIDTH 80
 

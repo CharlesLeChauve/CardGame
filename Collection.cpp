@@ -4,6 +4,8 @@
 #include "EffectFactory.hpp"
 #include "Collection.hpp"
 
+Collection* Collection::instance = nullptr;
+
 Collection::Collection(const std::string& file_name) {
     std::ifstream file(file_name);
     if (!file.is_open()) {
@@ -85,4 +87,13 @@ std::unique_ptr<Card> Collection::getRandomCard() const {
 
     // Retourner une copie de la carte choisie
     return std::make_unique<Card>(*cards[dis(gen)]);  // Clone de la carte
+}
+
+
+Collection &Collection::getInstance() 
+{
+    if (!instance) {
+        instance = new Collection("cards.json");
+    }
+    return *instance;
 }

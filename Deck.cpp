@@ -27,7 +27,7 @@ Deck::Deck(const std::string& prefab) {
     file.close();
 
     if (!j.contains(prefab) || !j[prefab].is_array()) {
-        throw std::runtime_error("Invalid or missing 'cards' field in JSON.");
+        throw std::runtime_error("Invalid or missing enemy field in JSON.");
     }
     else
     {

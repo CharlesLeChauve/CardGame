@@ -7,6 +7,7 @@
 #include "Card.hpp"
 #include "Buff.hpp"
 #include "BuffFactory.hpp"
+#include "Logger.hpp"
 
 class ACharacter {
 public:

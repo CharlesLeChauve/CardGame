@@ -1,4 +1,8 @@
 #include "TermDisplay.hpp"
+#include <deque>
+#include <iostream>
+#include <fstream>
+#include <string>
 
 void displayHpEnergy(const ACharacter& character)
 {
@@ -52,8 +56,44 @@ void displayCharacterInfo(const ACharacter& character) {
     std::cout << std::setfill('=') << std::setw(TERMWIDTH) << "" << std::endl;
 }
 
+void displayLog() {
+    // Ouvre le fichier de log en lecture
+    std::ifstream logfile = Logger::getInstance().getInputStream();
+
+    if (!logfile.is_open()) {
+        std::cerr << "Unable to open log file for reading." << std::endl;
+        return;
+    }
+
+    std::deque<std::string> last_lines;
+    std::string line;
+
+    // Lire toutes les lignes du fichier et ne garder que les 10 dernières
+    while (std::getline(logfile, line)) {
+        last_lines.push_back(line);
+        if (last_lines.size() > 10) {
+            last_lines.pop_front();  // Ne garder que les 10 dernières lignes
+        }
+    }
+
+    logfile.close();  // Fermer le fichier de log
+
+    // Afficher des lignes blanches si le fichier a moins de 10 lignes
+    int num_blanks = 10 - last_lines.size();
+    for (int i = 0; i < num_blanks; ++i) {
+        std::cout << std::endl;
+    }
+
+    // Afficher les dernières lignes du fichier
+    for (const auto& log_line : last_lines) {
+        std::cout << log_line << std::endl;
+    }
+}
+
+
 void displayGameState(const ACharacter& player1, const ACharacter& player2) {
     std::cout << "\033[2J\033[1;1H"; // Clear the screen
     displayCharacterInfo(player1);
     displayCharacterInfo(player2);
+    displayLog();
 }

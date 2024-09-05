@@ -5,15 +5,14 @@
 class DamageCalculator {
 public:
     static int calculateDamage(int baseDamage, ACharacter* attacker, ACharacter* target) {
-        int finalDamage = baseDamage;
+        int buffDamage = baseDamage;
 
-        // Prendre en compte les buffs de l'attaquant (exemple : furie)
-        finalDamage += attacker->getBuffAmount("fury");
-
-        // Prendre en compte les buffs de la cible (exemple : armure)
+        // Ici tenter de faire une fonction type getAllAttackBuffs chez ACharacter, puis appliquer tous ceux ayant ce tag ici
+        buffDamage += attacker->getBuffAmount("fury");
+        int finalDamage = buffDamage;
         if (target->getBuffAmount("armor")) {
             finalDamage -= target->getBuffAmount("armor");
-            target->addBuff("armor", baseDamage * -1);
+            target->addBuff("armor", buffDamage * -1);
         }
 
         // S'assurer que les dégâts ne sont pas négatifs

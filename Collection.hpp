@@ -10,21 +10,12 @@ using json = nlohmann::json;
 
 class Collection {
 private:
-    static Collection& instance;
+    static Collection* instance;
     std::map<std::string, Card> card_map;
     Collection(const std::string& file_name);
 
 public:
-    // Initialisation de l'instance unique
-    static Collection &initialize(const std::string file_name) {
-        static Collection instance(file_name);
-        return instance;
-    }
-
-    // Retourne l'instance unique
-    static Collection &getInstance() {
-        return initialize("cards.json");
-    }
+    static Collection &getInstance();
 
     // Retourne une copie de la carte -- "Clone() dans le design Pattern Factory"
     std::unique_ptr<Card> getCard(const std::string& card_name) const;

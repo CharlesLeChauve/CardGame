@@ -1,1 +1,3 @@
 CreateBuff dans BuffFactory produit probablement des leaks, Smart pointeur ??
+
+calcul des degats un peu foire, si les degats sont absorbes par l'armure, la fury n'a pas l'air prise en compte

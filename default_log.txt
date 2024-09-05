@@ -1,0 +1,22 @@
+Hippie uses Take Cover
+Hippie gained 3 armor
+Hippie uses Take Cover
+Hippie increased his armor by 3
+Hippie uses Flower Power
+Charles gained -3 fury
+Charles uses Good Strategy
+Charles uses Punch
+Hippie increased his armor by 0
+Hippie took 0 damage, lefting him with 15
+Hippie uses BioStim
+Hippie healed 0 hp, lefting him with 15
+Hippie uses Punch
+Charles took 3 damage, lefting him with 97
+Hippie uses Punch
+Charles took 3 damage, lefting him with 94
+Hippie uses BioStim
+Hippie healed 0 hp, lefting him with 15
+Hippie uses Punch
+Charles took 3 damage, lefting him with 91
+Hippie uses Take Cover
+Hippie gained 3 armor

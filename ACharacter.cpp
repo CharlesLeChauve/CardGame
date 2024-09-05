@@ -2,7 +2,7 @@
 
 // Constructeur
 ACharacter::ACharacter(const std::string& name, int max_hp, std::string baseDeck)
-    : name(name), deck(baseDeck), max_hp(max_hp), hand_size(5), hp(max_hp), discardPile(), energy(0), energyCapacity(3) {
+    : name(name), deck(baseDeck), max_hp(max_hp), hand_size(10), hp(max_hp), discardPile(), energy(0), energyCapacity(3) {
     }
 
 // Destructeur
@@ -33,11 +33,13 @@ int ACharacter::getEnergyCap() const
 void ACharacter::takeDamage(int damage) {
     hp -= damage;
     if (hp < 0) hp = 0;
+    Logger::getInstance().getOutputStream() << name << " took " << damage << " damage, lefting him with " << hp << std::endl;
 }
 
 void ACharacter::heal(int amount) {
     hp += amount;
-    //if (hp > max_hp) hp = max_hp;
+    if (hp > max_hp) hp = max_hp;
+    Logger::getInstance().getOutputStream() << name << " healed " << amount << " hp, lefting him with " << hp << std::endl;
 }
 
 int ACharacter::getBuffAmount(const std::string& type) const {
@@ -72,6 +74,7 @@ void ACharacter::addBuff(std::string type, int amount)
     });
     if (it != buffs.end()) {
         (*it)->increaseAmount(amount);
+        Logger::getInstance().getOutputStream() << name << " increased his " << type << " by " << amount << std::endl;
         if ((*it)->getAmount() <= 0) {
             delete *it;  // Suppression de l'objet pointé avant l'effacement du pointeur
             buffs.erase(it);
@@ -80,7 +83,8 @@ void ACharacter::addBuff(std::string type, int amount)
     else
     {
         BuffFactory& factory = BuffFactory::instance();
-        buffs.push_back(factory.createBuff(type, amount));  // Crée un nouvel objet Buff et l'ajoute au vecteur
+        buffs.push_back(factory.createBuff(type, amount));
+        Logger::getInstance().getOutputStream() << name << " gained " << amount << " " << type << std::endl;
     }
 }
 
@@ -123,10 +127,25 @@ void ACharacter::printHand() const {
     int n = 1;
     for (const auto& card : hand) {
         if (card) {
-            std::cout << " " << std::setw(4) << n << " | "
-                      << std::setw(20) << card->getName() << " | "
-                      << std::setw(40) << card->getDescription() << " | "
-                      << std::setw(5) << card->getCost() << std::endl;
+            std::string description = card->getDescription();
+            size_t desc_length = description.length();
+            size_t offset = 0;
+            do {
+                // Si on est à la première ligne, on affiche le No, Name, et Cost
+                if (offset == 0) {
+                    std::cout << " " << std::setw(4) << n << " | "
+                            << std::setw(20) << card->getName() << " | "
+                            << std::setw(40) << description.substr(offset, 40) << " | "
+                            << std::setw(5) << card->getCost() << std::endl;
+                } else {
+                    // Pour les lignes suivantes, on ne réaffiche pas No, Name, ni Cost
+                    std::cout << " " << std::setw(4) << "" << " | "
+                            << std::setw(20) << "" << " | "
+                            << std::setw(40) << description.substr(offset, 40) << " | "
+                            << std::setw(5) << "" << std::endl;
+                }
+                offset += 40;
+            } while (offset < description.length());
             n++;
         } else {
             std::cerr << "Warning: Null card encountered in hand." << std::endl;
@@ -135,7 +154,7 @@ void ACharacter::printHand() const {
 };
 
 void ACharacter::use(Card& card, ACharacter& opponent, int index) {
-    std::cout << getName() << " uses " << card.getName() << " on " << opponent.getName() << std::endl;
+    Logger::getInstance().getOutputStream() << getName() << " uses " << card.getName() << std::endl;
     if (index < hand.size()) {
             if (card.getCost() > energy)
                 return ;
