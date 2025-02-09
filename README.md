@@ -19,32 +19,28 @@ drops a card and the player has to build his deck to reach and defeat the Boss E
 The project is organized into several components:
 
 - **Card Management**:
-  - `Card.cpp` & `Card.hpp`: Define the properties and behaviors of individual cards.
-  - `Deck.cpp` & `Deck.hpp`: Manage collections of cards that form a player's deck.
-  - `Collection.cpp` & `Collection.hpp`: Handle the overall card collection available to players.
+  - [`Card.cpp`](./Card.cpp) & [`Card.hpp`](./Card.hpp): Define the properties and behaviors of individual cards.
+  - [`Deck.cpp`](./Deck.cpp) & [`Deck.hpp`](./Deck.hpp): Manage collections of cards that form a player's deck.
+  - [`Collection.cpp`](./Collection.cpp) & [`Collection.hpp`](./Collection.hpp): Handle the overall card collection available to players.
 
 - **Character and Enemy**:
-  - `ACharacter.cpp` & `ACharacter.hpp`: Abstract class defining common character attributes and methods.
-  - `Enemy.cpp` & `Enemy.hpp`: Specific implementations for enemy characters.
-  - `Player.cpp` & `Player.hpp`: Specific implementations for player characters.
+  - [`ACharacter.cpp`](./ACharacter.cpp) & [`ACharacter.hpp`](./ACharacter.hpp): Abstract class defining common character attributes and methods.
+  - [`Enemy.cpp`](./Enemy.cpp) & [`Enemy.hpp`](./Enemy.hpp): Specific implementations for enemy characters.
+  - [`Player.cpp`](./Player.cpp) & [`Player.hpp`](./Player.hpp): Specific implementations for player characters.
 
 - **Effects and Buffs**:
-  - `IEffect.hpp`: Interface for game effects.
-  - `EffectFactory.cpp` & `EffectFactory.hpp`: Factory for creating effects.
-  - `Buff.cpp` & `Buff.hpp`: Define various buffs that can be applied to characters or cards.
-  - `BuffFactory.cpp` & `BuffFactory.hpp`: Factory for creating buffs.
+  - [`IEffect.hpp`](./IEffect.hpp): Interface for game effects.
+  - [`EffectFactory.cpp`](./EffectFactory.cpp) & [`EffectFactory.hpp`](./EffectFactory.hpp): Factory for creating effects.
+  - [`Buff.cpp`](./Buff.cpp) & [`Buff.hpp`](./Buff.hpp): Define various buffs that can be applied to characters or cards.
+  - [`BuffFactory.cpp`](./BuffFactory.cpp) & [`BuffFactory.hpp`](./BuffFactory.hpp): Factory for creating buffs.
 
 - **Game Mechanics**:
-  - `FightInstance.cpp` & `FightInstance.hpp`: Manage individual combat encounters.
-  - `DamageCalc.cpp` & `DamageCalc.hpp`: Handle damage calculations during combat.
+  - [`FightInstance.cpp`](./FightInstance.cpp) & [`FightInstance.hpp`](./FightInstance.hpp): Manage individual combat encounters.
+  - [`DamageCalc.cpp`](./DamageCalc.cpp) & [`DamageCalc.hpp`](./DamageCalc.hpp): Handle damage calculations during combat.
 
 - **Utilities**:
-  - `Logger.cpp` & `Logger.hpp`: Logging functionality for debugging and tracking game events.
-  - `EventManager.cpp` & `EventManager.hpp`: Manage game events and interactions.
+  - [`Logger.cpp`](./Logger.cpp) & [`Logger.hpp`](./Logger.hpp): Logging functionality for debugging and tracking game events.
 
-- **Game Control**:
-  - `GameController.cpp` & `GameController.hpp`: Oversee the main game loop and state transitions.
-  - `GameMediator.cpp` & `GameMediator.hpp`: Facilitate communication between different game components.
 
 ## Getting Started
 
