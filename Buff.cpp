@@ -1,5 +1,17 @@
 #include "Buff.hpp"
 
+bool Buff::appliesTo(const std::string& tag) const {
+	return std::find(tags.begin(), tags.end(), tag) != tags.end();
+}
+
+void Buff::applyToDamage(int& damage) const {
+	if (type == "fury") {
+		damage += amount;
+	} else if (type == "armor") {
+		damage -= amount;
+	}
+}
+
 bool Buff::hasTag(const std::string& str) const {
     auto it = std::find(tags.begin(), tags.end(), str);
     return it != tags.end();

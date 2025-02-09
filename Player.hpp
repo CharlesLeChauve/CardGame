@@ -1,5 +1,5 @@
 #pragma once
-
+#include <sstream>
 #include <iostream>
 #include "Card.hpp"
 #include "ACharacter.hpp"
@@ -15,3 +15,4 @@ public:
     //turn method
     void playTurn(ACharacter& opponent) override;
 };
+

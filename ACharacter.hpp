@@ -47,8 +47,10 @@ public:
 	virtual void discardAll();
     virtual void printHand() const;
     virtual void shuffleDiscard();
-    virtual void playTurn(ACharacter& opponent) = 0;
+
+    std::vector<Buff*> getAllApplicableBuffs(const std::string& tag) const;
 
     // Méthodes virtuelles pures
+    virtual void playTurn(ACharacter& opponent) = 0;
     virtual void performSpecialAbility() = 0;
 };

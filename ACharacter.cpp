@@ -184,3 +184,13 @@ void ACharacter::shuffleDiscard() {
     }
     deck.shuffle();
 }
+
+std::vector<Buff*> ACharacter::getAllApplicableBuffs(const std::string& tag) const {
+    std::vector<Buff*> applicableBuffs;
+    for (auto& buff : buffs) {
+        if (buff->appliesTo(tag)) {
+            applicableBuffs.push_back(buff);
+        }
+    }
+    return applicableBuffs;
+}

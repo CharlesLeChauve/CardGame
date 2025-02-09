@@ -17,6 +17,9 @@ public:
 	void decreaseAmount(int amount);
 	void increaseAmount(int amount);
 
+	bool appliesTo(const std::string& tag) const;
+	void applyToDamage(int& damage) const;
+
 	const std::string& getType() const;
 	int getAmount() const;
 	void setAmount(int amt);
