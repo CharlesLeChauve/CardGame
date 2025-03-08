@@ -1,25 +1,25 @@
 # Variables
 NAME    = Cyberogue
-CXX     = c++
-FLAGS   = -g -std=c++17 #-Wall -Werror
-SRC     = Logger.cpp Buff.cpp BuffFactory.cpp FightInstance.cpp TermDisplay.cpp CEffects.cpp EffectFactory.cpp Card.cpp Deck.cpp ACharacter.cpp Enemy.cpp Player.cpp main.cpp Collection.cpp
-OBJ     = $(SRC:.cpp=.o)
+CXX     = g++
+CXXFLAGS = -g -std=c++23 -I/opt/homebrew/include
+LDFLAGS = -L/opt/homebrew/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+SRC     = ${wildcard src/*.cpp}
+OBJS     = $(SRC:.cpp=.o)
 RM      = rm -f
 
 # Cible par défaut
 all: $(NAME)
 
 # Création de l'exécutable
-$(NAME): $(OBJ)
-	$(CXX) $(FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(OBJS) -o game $(LDFLAGS)
 
-# Création des fichiers objets
 %.o: %.cpp
-	$(CXX) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Nettoyage des fichiers objets
 clean:
-	@$(RM) $(OBJ)
+	@$(RM) $(OBJS)
 	@echo "Done"
 
 # Nettoyage complet (objets + exécutable)
